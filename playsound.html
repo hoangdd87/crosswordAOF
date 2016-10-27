@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<audio id="audio" src="sounds/tongketdiem.mp3" autostart="true" ></audio>
+<button onclick="PlaySound()"> Play</button>
+<button onclick="PauseSound()"> Pause</button>
+
+
+</body>
+<script>
+    function PlaySound() {
+        var sound = document.getElementById("audio");
+        sound.play();
+    }
+    function PauseSound() {
+        var sound = document.getElementById("audio");
+        sound.pause();
+        sound.currentTime=0;
+    }
+</script>
+</html>
+
