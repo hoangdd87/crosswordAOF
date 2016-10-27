@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2016 at 03:38 PM
+-- Generation Time: Oct 27, 2016 at 02:34 AM
 -- Server version: 5.6.31
 -- PHP Version: 5.6.25
 
@@ -27,10 +27,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `questions` (
-  `question_id` int(4) NOT NULL,
+  `question_id` int(4) NOT NULL DEFAULT '0',
   `question` text COLLATE utf8_unicode_ci NOT NULL,
-  `correct_answer` text COLLATE utf8_unicode_ci NOT NULL
+  `correct_answer` text COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(1) NOT NULL DEFAULT '0',
+  `answer_time` int(5) NOT NULL DEFAULT '30',
+  `time_begin` datetime(6) NOT NULL,
+  `time_end` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`question_id`, `question`, `correct_answer`, `status`, `answer_time`, `time_begin`, `time_end`) VALUES
+(1, 'Hãy cho biết bộ sản phẩm Microsoft Office là của hãng nào? Và phải trả lời thật nhanh.', 'Microsoft', 0, 30, '2016-10-26 22:54:30.305400', '2016-10-26 22:55:00.305400'),
+(2, 'Cho biết số lớn nhất trong ba số sau -100, -12343, -9', '-9', 1, 30, '2016-10-26 23:01:27.625700', '2016-10-26 23:01:57.625700'),
+(3, 'Hãy cho biết ai đã nói "Hãy cứ ngây ngô, hãy cứ dại khờ"?', 'Steven Jobs', 2, 30, '2016-10-26 23:00:40.066000', '2016-10-26 23:01:10.066000');
 
 -- --------------------------------------------------------
 
@@ -62,8 +75,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_name`, `password`, `role`) VALUES
-  ('team1', 'team1', 'user'),
-  ('team2', 'team2', 'user');
+('team1', 'team1', 'user'),
+('team2', 'team2', 'user');
 
 -- --------------------------------------------------------
 
@@ -73,27 +86,24 @@ INSERT INTO `users` (`user_name`, `password`, `role`) VALUES
 
 CREATE TABLE IF NOT EXISTS `users_answers` (
   `user_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `time_answer` datetime NOT NULL,
+  `time_answer` datetime(6) NOT NULL,
   `answer` text COLLATE utf8_unicode_ci NOT NULL,
   `rec_no` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `users_answers`
 --
 
 INSERT INTO `users_answers` (`user_name`, `time_answer`, `answer`, `rec_no`) VALUES
-  ('team2', '2016-10-18 22:13:42', 'Hoang', 23),
-  ('team2', '2016-10-18 22:18:52', 'Cộng hoà', 24),
-  ('team2', '2016-10-18 22:19:16', 'Xin chào ', 25),
-  ('team2', '2016-10-18 22:19:26', 'Việt Nam quê hương tôi', 26),
-  ('team2', '2016-10-18 22:21:04', 'layout', 27),
-  ('team2', '2016-10-18 22:21:22', 'lemon tree', 28),
-  ('team2', '2016-10-18 22:31:52', 'new answer', 29),
-  ('team2', '2016-10-18 22:32:01', 'layout free', 30),
-  ('team1', '2016-10-18 22:33:33', 'hello wỏld', 31),
-  ('team1', '2016-10-18 22:33:42', 'cong hoa xa', 32),
-  ('team1', '2016-10-18 22:37:22', 'layout', 33);
+('team1', '2016-10-25 15:18:23.138400', 'BillGates', 36),
+('team1', '2016-10-25 15:18:52.334500', 'Steven Jobs', 37),
+('team1', '2016-10-25 15:19:59.838900', 'Bill Clinton', 38),
+('team1', '2016-10-26 03:59:12.956700', 'Hello', 39),
+('team1', '2016-10-26 11:01:22.658200', 'Hello', 40),
+('team1', '2016-10-26 11:01:28.588700', 'BB', 41),
+('team1', '2016-10-26 14:56:14.520100', 'thabkyou', 42),
+('team1', '2016-10-26 14:56:17.607300', 'thankyou', 43);
 
 -- --------------------------------------------------------
 
@@ -147,11 +157,6 @@ ALTER TABLE `words`
 --
 
 --
--- AUTO_INCREMENT for table `questions`
---
-ALTER TABLE `questions`
-  MODIFY `question_id` int(4) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `questions_time`
 --
 ALTER TABLE `questions_time`
@@ -160,7 +165,7 @@ ALTER TABLE `questions_time`
 -- AUTO_INCREMENT for table `users_answers`
 --
 ALTER TABLE `users_answers`
-  MODIFY `rec_no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
+  MODIFY `rec_no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT for table `words`
 --
