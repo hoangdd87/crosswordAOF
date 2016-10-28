@@ -8,11 +8,11 @@ class PDOHelper
     {
         try {
 
-            include($_SERVER['DOCUMENT_ROOT'] . '/variables/variables_crossword.php');
-            $host = VARIABLE_CONFIG::$host;
-            $database = VARIABLE_CONFIG::$database;
-            $user = VARIABLE_CONFIG::$user;
-            $pass = VARIABLE_CONFIG::$pass;
+            //include($_SERVER['DOCUMENT_ROOT'] . '/variables/variables_crossword.php');
+            $host = 'localhost';
+            $database = 'crosswordgame';
+            $user = 'root';
+            $pass = 'mysql';
 
             $this->PDO = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $user, $pass);
             $this->PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
