@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="jquery-3.1.1.min.js"></script>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="mycss.css">
     <title>Question & Answer</title>
@@ -32,9 +33,9 @@ $textColor = Colors::getTextAnswerColor($question->status);
                       style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"></span>
             <? endforeach; ?>
         </div>
-        <span class="buttonShowQuestion">
+        <button class="buttonShowQuestion">
              <?= $question_id ?>
-        </span>
+        </button>
     </div>
 
     <div class="question_area">
@@ -46,7 +47,6 @@ $textColor = Colors::getTextAnswerColor($question->status);
         </div>
 
     </div>
-
 
     <audio  id="audio" src="sounds/30s.mp4"></audio>
 
@@ -66,9 +66,24 @@ $textColor = Colors::getTextAnswerColor($question->status);
 </body>
 <script>
 
-    var _question_Text_Color='white'
+    var _question_Text_Color='white';
+    var _question_id=<?php echo $question_id?>;
+    var _answer_time=<?php echo $question->answer_time?>;
+
+    function post() {
+        $.post("http://localhost/crosswordaof/apis/update_question_time.php",
+            {
+                question_id: _question_id,
+                answer_time: _answer_time
+            },
+            function (data, status) {
+            });
+    }
 
     function Play30sButton() {
+        //post start time to server
+        post();
+
         //Change color of text area
         document.getElementById("question_text_area_id").style.color = _question_Text_Color;
 
@@ -80,12 +95,13 @@ $textColor = Colors::getTextAnswerColor($question->status);
         function updateClock() {
             t=t-1;
 
+            /*
             if(sound.currentTime>=30){
                 sound.pause()
                 sound.currentTime = 0
                 sound.play()
             }
-
+            */
             document.getElementById("question_countdown_clock_area").innerHTML = t;
 
 
