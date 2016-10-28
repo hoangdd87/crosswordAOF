@@ -34,7 +34,7 @@ $textColor = Colors::getTextAnswerColor($question->status);
             <? endforeach; ?>
         </div>
         <button class="buttonShowQuestion">
-             <?= $question_id ?>
+            <?= $question_id ?>
         </button>
     </div>
 
