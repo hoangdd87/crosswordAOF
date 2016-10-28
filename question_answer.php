@@ -54,6 +54,9 @@ $textColor=Colors::getTextAnswerColor($question->status);
         <div class="user_name">
             Apple
         </div>
+        <div class="user_answer_time">
+            20.05
+        </div>
         <div class="user_answer">
             Lê Quý Đôn
         </div>
@@ -62,6 +65,9 @@ $textColor=Colors::getTextAnswerColor($question->status);
     <div class="row_user_answer">
         <div class="user_name">
             Google
+        </div>
+        <div class="user_answer_time">
+            20.05
         </div>
         <div class="user_answer">
             Lê Quý Đôn
@@ -72,6 +78,9 @@ $textColor=Colors::getTextAnswerColor($question->status);
         <div class="user_name">
             Microsoft
         </div>
+        <div class="user_answer_time">
+            20.05
+        </div>
         <div class="user_answer">
             Lê Quý Đôn
         </div>
@@ -80,6 +89,9 @@ $textColor=Colors::getTextAnswerColor($question->status);
     <div class="row_user_answer">
         <div class="user_name">
             Facebook
+        </div>
+        <div class="user_answer_time">
+            20.05
         </div>
         <div class="user_answer">
             Lê Quý Đôn

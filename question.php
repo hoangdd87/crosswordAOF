@@ -33,11 +33,14 @@ $textColor = Colors::getTextAnswerColor($question->status);
                       style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"></span>
             <? endforeach; ?>
         </div>
-        <button class="buttonShowQuestion">
+        <a class="buttonShowQuestion" href="question_answer.php?question_id=<?=$question_id?>">
             <?= $question_id ?>
-        </button>
+        </a>
     </div>
 
+    <div class="button_group">
+
+    </div>
     <div class="question_area">
         <div id="question_text_area_id" class="question_text_area" style="color: transparent">
             <?=$question->question?>

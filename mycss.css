@@ -6,6 +6,7 @@ html {
     background-size: cover;
     width: 100%;
     height: 100%;
+    margin: 0 0 0 0;
 }
 
 body {
@@ -14,27 +15,29 @@ body {
     width: 100%;
     height: 100%;
     overflow:hidden;
+    margin: 0 0 0 0;
 }
 
 .container {
     display: block;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    width: 98%;
+    height: 96%;
     background-color: transparent;
     color: white;
-    padding-top: 10px;
-    padding-bottom: 20px;
+    margin: 15px 15px 15px 15px;
 }
 
 .row_correct_answer {
+    position: relative;
     display: block;
     width: 100%;
     height: 60px;
-    margin: 10px 0px 0px 0px;
     background-color: transparent; /*Always*/
 }
 
 .correct_answer {
+    position: relative;
     display: inline-block;
     width: 90%;
     height: 100%;
@@ -44,6 +47,7 @@ body {
 }
 
 .lettercell {
+    position: relative;
     font-weight: 400;
     font-family: tahoma, verdana, arial, sans-serif;
     font-size: 36px;
@@ -57,7 +61,6 @@ body {
     vertical-align: middle;
     margin-top: auto;
     margin-bottom: auto;
-    position: relative;
     top: 50%;
     transform: translateY(-50%);
     background-color: #fff0f5; /*Default value*/
@@ -65,27 +68,25 @@ body {
 
     /*Circle letter*/
     border-radius: 50%;
-    padding: 0px;
     border: 1px solid transparent;
     /*****/
 }
 
+/*Button(href) to show question_id*/
 .buttonShowQuestion {
+    position: absolute;
     display: inline-block;
-    width: auto;
-    min-width: 50px;
+    width: 50px;
     height: 50px;
     line-height: 50px;
     text-align: center;
-    float: right;
-    margin-right: 3%;
+    right: 0;
 
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
     color: rgb(255, 73, 0);
     font-size: 36px;
-    padding: 0px 0px 0px 0px;
     text-decoration: none;
 
     /*Text Shadow*/
@@ -109,28 +110,22 @@ body {
     transform: translateY(4px);
 }
 
+/*Play music button*/
 .divPlayButton {
     width: 5%;
     height: 10%;
-    background-color: transparent;
-    margin-right: 3%;
+    background-color: transparent;/*always*/
     position: absolute;
     bottom: 0;
     right: 0;
 }
-
-.questionIDSpan {
-    width: 50px;
-    height: 50px;
-}
-
 .play-button {
     height: 40px;
     width: 65px;
     background-color: transparent;
-    border: 0px;
     border-radius: 5px;
-    position: relative;
+    position: absolute;
+    bottom: 0;
 }
 
 .play-button:hover {
@@ -149,17 +144,22 @@ body {
     border-color: transparent transparent transparent rgba(255, 255, 255, 1);
 }
 
+
+/*Row that show user's answer and time*/
 .row_user_answer {
+    position: relative;
+    float: left;
     display: block;
-    width: 90%;
+    width: calc(100% - 40px);/*100%- margin*/
     height: 60px;
-    margin: 10px 7% 0px 3%;
+    margin: 20px 20px 20px 20px;
     background-color: transparent; /*Always*/
 }
 .user_name {
+    position: relative;
     display: inline-block;
     float: left;
-    width:15%;
+    width:200px;
     height: 60px;
     line-height: 60px;
     color: #fff;
@@ -169,13 +169,29 @@ body {
     text-align: center;
 
     vertical-align: middle;
-    margin: 0px 0px 0px 0px;
+
+}
+.user_answer_time{
+    position: relative;
+    display: inline-block;
+    float: left;
+    width:120px;
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+    font-size: 36px;
+    background-color: #090280;
+    text-shadow: #fff 0 0 10px;
+    text-align: center;
+
+    vertical-align: middle;
 
 }
 
 .user_answer {
+    position: relative;
     display: inline-block;
-    width:75%;
+    width: calc(100% - 350px);
     height: 60px;
     line-height: 60px;
     color: #801f03;
@@ -184,48 +200,25 @@ body {
     background-color: #f9ffe5;
     text-shadow: #fff 0 0 10px;
     text-align: left;
+    padding-left: 30px;
 
 
     vertical-align: middle;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 0px;
-    padding-left: 20px;
 
 }
-
-.button {
-    display: inline-block;
-    padding: 15px 25px;
-    font-size: 24px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-}
-
-.button:hover {background-color: #3e8e41}
-
-
-
+/*question.php question_area* includes question and countdown clock*/
 .question_area{
     width: 100%;
-    height:230px;
-    background-color: transparent;
-    position: fixed;
-    bottom: 10px;
-    margin-bottom: 10px;
+    height:250px;
+    background-color: transparent;/*always*/
+    position: absolute;
+    bottom: 0;
 }
 .question_text_area{
-    width: 75%;
-    height:250px;
-    position: relative;
-    float: left;
+    width: calc(100% - 280px);
+    height:230px;
+    position: absolute;
+    bottom: 0;
     display: block;
     margin-left: 30px;
 
@@ -236,13 +229,12 @@ body {
     /*Text effect */
     color: white; /*default value*/
     background-color: #232323;
-
-
-
 }
 
 .question_countdown_clock_area{
     display: inline-block;
+    position: absolute;
+    right:0;
     width:240px;
     height: 240px;
     line-height: 240px;
@@ -252,13 +244,23 @@ body {
 
     /*circle*/
     border-radius: 50%;
-    padding: 0px;
     border: 1px solid transparent;
 
     /*text Neon*/
     color: #fff;
     background-color: #232323;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18
+}
+
+/*Group button in question_answer.php include xem cau hoi*/
+.button_group {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    bottom: 250px;
+    left:0px;
+    color: greenyellow;
+    background-color: yellow;
 }
 
 
