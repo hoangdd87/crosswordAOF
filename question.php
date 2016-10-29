@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script src="jquery-3.1.1.min.js"></script>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="mycss.css">
-    <title>Question & Answer</title>
-</head>
-
-
 <?php
 
 //Prepare to show all quuestions
@@ -22,6 +12,19 @@ $answer_array = $question->getEveryLetterAnswer();
 $backGroundColor = Colors::getBackgroundTextAnswerColor($question->status);
 $textColor = Colors::getTextAnswerColor($question->status);
 ?>
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <script src="jquery-3.1.1.min.js"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="mycss.css">
+    <title>Question <?=$question_id?></title>
+</head>
+
+
+
 
 
 <body>
@@ -38,7 +41,13 @@ $textColor = Colors::getTextAnswerColor($question->status);
         </a>
     </div>
 
-    <div class="button_group">
+    <div class="button_group_row">
+        <button class="buttonNormal buttonBack">
+            Back
+        </button>
+        <button class="buttonNormal buttonNext">
+            Next
+        </button>
 
     </div>
     <div class="question_area">
