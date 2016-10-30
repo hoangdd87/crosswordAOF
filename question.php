@@ -25,40 +25,35 @@ $textColor = Colors::getTextAnswerColor($question->status);
 
 <body>
 <div class="container">
+
     <div class="row_correct_answer">
+        <a href="question_list.php" class="homebuttoncontainer">
+            <img alt="Home" src="images/Home-icon.png" class="image">
+        </a>
 
-        <img src="images/next_button.svg.med.png" alt="next" style="width:60px;height:60px;>
-        <div class=" correct_answer">
-        <? foreach ($answer_array as $letter): ?>
-            <span class="lettercell"
-                  style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"></span>
-        <? endforeach; ?>
+        <div class="correct_answer">
+            <? foreach ($answer_array as $letter): ?>
+                <span class="lettercell"
+                      style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"></span>
+            <? endforeach; ?>
+        </div>
+        <a class="question_id" href="question_answer.php?question_id=<?= $question_id ?>">
+            <?= $question_id ?>
+        </a>
     </div>
-    <a id="buttonNext" class="button buttonNext" href="question_answer.php?question_id=<?= $question_id ?>"
-       style="visibility: hidden">
-        <?= $question_id ?>
-    </a>
-</div>
+    <div class="question_area">
+        <div id="question_text_area_id" class="question_text_area" style="color: transparent">
+            <?= $question->question ?>
+        </div>
+        <div id='question_countdown_clock_area' class="question_countdown_clock_area">
+            <?php echo $question->answer_time ?>
+        </div>
 
-
-<div class="question_area">
-    <div id="question_text_area_id" class="question_text_area" style="color: transparent">
-        <?= $question->question ?>
     </div>
-    <div id='question_countdown_clock_area' class="question_countdown_clock_area">
-        <?php echo $question->answer_time ?>
-    </div>
-
-</div>
-
-<audio id="audio" src="sounds/30s.mp4"></audio>
-
-<div class="divPlayButton">
-    <button id="button30s" class="play-button" onclick="Play30sButton()">
+    <button id="button30s" class="play-music-button" onclick="Play30sButton()">
     </button>
-</div>
 
-
+    <audio id="audio" src="sounds/30s.mp4"></audio>
 </div>
 
 <script>
@@ -80,8 +75,7 @@ $textColor = Colors::getTextAnswerColor($question->status);
                 answer_time: _answer_time
             },
             function (data, status) {
-                //Visible the next button
-                document.getElementById("buttonNext").style.visibility = "visible"
+
             });
     }
 

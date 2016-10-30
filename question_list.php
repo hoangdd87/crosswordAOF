@@ -34,7 +34,7 @@ $questions_list = $pdoHelper->get_All_Questions();
                         color: <?= $answerlettercolor ?>"><?= $character ?></span>
                 <? endforeach; ?>
             </div>
-            <a class="button buttonNext" href="question.php?question_id=<?=$question->question_id?>">
+            <a class="question_id" href="question.php?question_id=<?= $question->question_id ?>">
                 <?= $question->question_id ?>
             </a>
         </div>
@@ -42,10 +42,8 @@ $questions_list = $pdoHelper->get_All_Questions();
 
     <audio id="audio" src="sounds/nguoichoiluachoncauhoi.wav"></audio>
 
-    <div class="divPlayButton">
-        <button class="play-button" onclick="PlaySound()">
-        </button>
-    </div>
+    <button class="play-music-button" onclick="PlaySound()">
+    </button>
 
 
 </div>

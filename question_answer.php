@@ -31,21 +31,26 @@ $question_id = isset($_GET['question_id']) ? $_GET['question_id'] : 1;
 $pdoHelper = new PDOHelper();
 $question = $pdoHelper->get_Question($question_id);
 $answer_array = $question->getEveryLetterAnswer();
-$backGroundColor=Colors::getBackgroundTextAnswerColor($question->status);
-$textColor=Colors::getTextAnswerColor($question->status);
+$backGroundColor = Colors::getBackgroundTextAnswerColor($question->status);
+$textColor = Colors::getTextAnswerColor($question->status);
 ?>
 
 
 <body>
 <div class="container">
     <div class="row_correct_answer">
+        <a href="question_list.php" class="homebuttoncontainer">
+            <img alt="Home" src="images/Home-icon.png" class="image">
+        </a>
         <div class="correct_answer">
-            <? foreach ($answer_array as $letter):?>
-                <span class="lettercell" style="background-color: <?=$backGroundColor?>;color: <?=$textColor?>;"></span>
-            <?endforeach;?>
+
+            <? foreach ($answer_array as $letter): ?>
+                <span class="lettercell"
+                      style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"></span>
+            <? endforeach; ?>
         </div>
-        <span class="button buttonNext">
-             <?=$question_id?>
+        <span class="question_id">
+             <?= $question_id ?>
         </span>
 
     </div>
@@ -101,10 +106,8 @@ $textColor=Colors::getTextAnswerColor($question->status);
 
     <audio id="audio" src="sounds/nguoichoiluachoncauhoi.wav"></audio>
 
-    <div class="divPlayButton">
-        <button class="play-button" onclick="PlaySound()">
-        </button>
-    </div>
+    <button class="play-music-button" onclick="PlaySound()">
+    </button>
 
 
 </div>

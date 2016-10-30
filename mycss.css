@@ -14,7 +14,7 @@ body {
     font-weight: 100;
     width: 100%;
     height: 100%;
-    overflow:hidden;
+    overflow: hidden;
     margin: 0 0 0 0;
 }
 
@@ -28,25 +28,29 @@ body {
     margin: 15px 15px 15px 15px;
 }
 
-.container>.row_correct_answer {
+.container > .row_correct_answer {
     position: relative;
     display: block;
-    width: 100%;
+
     height: 60px;
+    width: 100%;
+    left: 0;
+    right: 0;
     background-color: transparent; /*Always*/
 }
 
-.container>.row_correct_answer>.correct_answer {
-    position: relative;
+.container > .row_correct_answer > .correct_answer {
+    position: absolute;
+    left: 50px;
     display: inline-block;
-    width: 90%;
+    width: calc(100% - 100px);
     height: 100%;
     text-align: center;
     vertical-align: middle;
     background-color: transparent; /*Always*/
 }
 
-.container>.row_correct_answer>.correct_answer>.lettercell {
+.container > .row_correct_answer > .correct_answer > .lettercell {
     position: relative;
     font-weight: 400;
     font-family: tahoma, verdana, arial, sans-serif;
@@ -71,12 +75,8 @@ body {
     border: 1px solid transparent;
     /*****/
 }
-.container>.row_correct_answer>.question_id{
 
-}
-
-/*Button(href) to show question_id*/
-.button {
+.container > .row_correct_answer > .question_id {
     position: absolute;
     display: inline-block;
     width: 50px;
@@ -84,67 +84,74 @@ body {
     line-height: 50px;
     text-align: center;
     right: 0;
+    background-color: #3F51B5;
+    color: #FF9800;
 
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    color: white;
     font-size: 40px;
-    font-weight	: 600;
+    font-weight: 600;
     text-decoration: none;
     /*Text Shadow*/
-
     border: none;
     cursor: pointer;
 }
 
-.button.buttonNext{
-    background-color: #3F51B5;
-    color: #FF9800;
-}
-
-.button.buttonNext:hover {
+.container > .row_correct_answer > .question_id:hover {
 
     background-color: #1A237E;
     text-decoration: none;
 }
 
-
-
-.button.buttonQuestion_list{
+.container > .row_correct_answer > .homebuttoncontainer {
     position: absolute;
     left: 0;
-    background-color: #CDDC39;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
 }
 
+.container > .homebuttoncontainer:hover {
+    display: inline;
+}
 
-/*Play music button*/
-.divPlayButton {
-    width: 5%;
-    height: 10%;
-    background-color: transparent;/*always*/
+.container > .row_correct_answer > .homebuttoncontainer > .image {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    width: 50px;
+    height: 50px;
+    left: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
-.play-button {
+
+.container > .homebuttoncontainer > .image:hover {
+    display: inline;
+}
+
+/*Play music - impotant*/
+.container > .play-music-button {
     height: 40px;
     width: 65px;
     background-color: transparent;
     border-radius: 5px;
+    border: none;
     position: absolute;
     bottom: 0;
+    right: 0;
 }
 
-.play-button:hover {
+.container > .play-music-button:hover {
     background-color: rgba(0, 173, 239, 0.9);
 }
 
-.play-button:after {
+.container > .play-music-button:after {
     content: "";
     display: block;
     position: absolute;
-    top: 10.5px;
+    top: 10px;
     left: 24px;
     margin: 0 auto;
     border-style: solid;
@@ -152,22 +159,64 @@ body {
     border-color: transparent transparent transparent rgba(255, 255, 255, 1);
 }
 
+/*question.php question_area* includes question and countdown clock*/
+.container > .question_area {
+    width: 100%;
+    height: 250px;
+    background-color: transparent; /*always*/
+    position: absolute;
+    bottom: 0;
+}
 
-/*Row that show user's answer and time*/
-.row_user_answer {
+.container > .question_area > .question_text_area {
+    width: calc(100% - 280px);
+    height: 230px;
+    position: absolute;
+    bottom: 0;
+    display: block;
+    margin-left: 30px;
+    padding: 10px 10px 10px 10px;
+    font-size: 36px;
+    font-weight: 300;
+    /*Text effect */
+    color: white; /*default value*/
+    background-color: #232323;
+}
+
+.container > .question_area > .question_countdown_clock_area {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    width: 240px;
+    height: 240px;
+    line-height: 240px;
+    text-align: center;
+    font-size: 150px;
+    /*circle*/
+    border-radius: 50%;
+    border: 1px solid transparent;
+    /*text Neon*/
+    color: #fff;
+    background-color: #232323;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18
+}
+
+/*question_answer.php Row that show user's answer and time*/
+.container > .row_user_answer {
     position: relative;
     float: left;
     display: block;
-    width: calc(100% - 40px);/*100%- margin*/
+    width: calc(100% - 40px); /*100%- margin*/
     height: 60px;
     margin: 20px 20px 20px 20px;
     background-color: transparent; /*Always*/
 }
-.user_name {
+
+.container > .row_user_answer > .user_name {
     position: relative;
     display: inline-block;
     float: left;
-    width:200px;
+    width: 200px;
     height: 60px;
     line-height: 60px;
     color: #fff;
@@ -179,11 +228,12 @@ body {
     vertical-align: middle;
 
 }
-.user_answer_time{
+
+.container > .row_user_answer > .user_answer_time {
     position: relative;
     display: inline-block;
     float: left;
-    width:120px;
+    width: 120px;
     height: 60px;
     line-height: 60px;
     color: #fff;
@@ -196,7 +246,7 @@ body {
 
 }
 
-.user_answer {
+.container > .row_user_answer > .user_answer {
     position: relative;
     display: inline-block;
     width: calc(100% - 350px);
@@ -210,109 +260,12 @@ body {
     text-align: left;
     padding-left: 30px;
 
-
     vertical-align: middle;
 
 }
-/*question.php question_area* includes question and countdown clock*/
-.question_area{
-    width: 100%;
-    height:250px;
-    background-color: transparent;/*always*/
-    position: absolute;
-    bottom: 0;
-}
-.question_text_area{
-    width: calc(100% - 280px);
-    height:230px;
-    position: absolute;
-    bottom: 0;
-    display: block;
-    margin-left: 30px;
 
-    padding: 10px 10px 10px 10px;
-    font-size: 36px;
-    font-weight: 300;
 
-    /*Text effect */
-    color: white; /*default value*/
-    background-color: #232323;
-}
 
-.question_countdown_clock_area{
-    display: inline-block;
-    position: absolute;
-    right:0;
-    width:240px;
-    height: 240px;
-    line-height: 240px;
-    text-align: center;
-
-    font-size: 150px;
-
-    /*circle*/
-    border-radius: 50%;
-    border: 1px solid transparent;
-
-    /*text Neon*/
-    color: #fff;
-    background-color: #232323;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18
-}
-
-/*Group button in question_answer.php include xem cau hoi*/
-.button_group_row {
-    position: absolute;
-    display: block;
-    bottom: 250px;
-    left: 30px;
-    right: 230px;
-    height: 50px;
-    color: greenyellow;
-}
-
-/*Button normal like see answer, back*/
-.buttonNormal {
-    position: relative;
-    width: 80px;
-    height: 100%;
-    border: none;
-    color: white;
-    text-align: center;
-
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
-
-.buttonNormal.button {
-    position: relative;
-    float: right;
-    background-color: black;
-    color: white;
-}
-
-.buttonNormal.button:hover {
-    background-color: #0105af;
-    color: white;
-}
-
-.buttonBack {
-    position: relative;
-    float: left;
-    background-color: #807f75;
-    color: white;
-    display: none;
-}
-
-.buttonBack:hover {
-    background-color: #f44336;
-    color: white;
-    display: inline-block;
-}
 
 
 
