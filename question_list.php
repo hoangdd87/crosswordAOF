@@ -34,7 +34,7 @@ $questions_list = $pdoHelper->get_All_Questions();
                         color: <?= $answerlettercolor ?>"><?= $character ?></span>
                 <? endforeach; ?>
             </div>
-            <a class="buttonShowQuestion" href="question.php?question_id=<?=$question->question_id?>">
+            <a class="button buttonNext" href="question.php?question_id=<?=$question->question_id?>">
                 <?= $question->question_id ?>
             </a>
         </div>

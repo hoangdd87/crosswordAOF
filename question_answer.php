@@ -44,7 +44,7 @@ $textColor=Colors::getTextAnswerColor($question->status);
                 <span class="lettercell" style="background-color: <?=$backGroundColor?>;color: <?=$textColor?>;"></span>
             <?endforeach;?>
         </div>
-        <span class="buttonShowQuestion">
+        <span class="button buttonNext">
              <?=$question_id?>
         </span>
 

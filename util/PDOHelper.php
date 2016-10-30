@@ -3,7 +3,6 @@
 class PDOHelper
 {
     public $PDO;
-
     public function __construct()
     {
         try {

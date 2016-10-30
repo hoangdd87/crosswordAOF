@@ -20,67 +20,58 @@ $textColor = Colors::getTextAnswerColor($question->status);
     <script src="jquery-3.1.1.min.js"></script>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="mycss.css">
-    <title>Question <?=$question_id?></title>
+    <title>Question <?= $question_id ?></title>
 </head>
-
-
-
-
 
 <body>
 <div class="container">
     <div class="row_correct_answer">
-        <div class="correct_answer">
-            <? foreach ($answer_array as $letter): ?>
-                <span class="lettercell"
-                      style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"></span>
-            <? endforeach; ?>
-        </div>
-        <a class="buttonShowQuestion" href="question_answer.php?question_id=<?=$question_id?>">
-            <?= $question_id ?>
-        </a>
+
+        <img src="images/next_button.svg.med.png" alt="next" style="width:60px;height:60px;>
+        <div class=" correct_answer">
+        <? foreach ($answer_array as $letter): ?>
+            <span class="lettercell"
+                  style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"></span>
+        <? endforeach; ?>
+    </div>
+    <a id="buttonNext" class="button buttonNext" href="question_answer.php?question_id=<?= $question_id ?>"
+       style="visibility: hidden">
+        <?= $question_id ?>
+    </a>
+</div>
+
+
+<div class="question_area">
+    <div id="question_text_area_id" class="question_text_area" style="color: transparent">
+        <?= $question->question ?>
+    </div>
+    <div id='question_countdown_clock_area' class="question_countdown_clock_area">
+        <?php echo $question->answer_time ?>
     </div>
 
-    <div class="button_group_row">
-        <button class="buttonNormal buttonBack">
-            Back
-        </button>
-        <button class="buttonNormal buttonNext">
-            Next
-        </button>
+</div>
 
-    </div>
-    <div class="question_area">
-        <div id="question_text_area_id" class="question_text_area" style="color: transparent">
-            <?=$question->question?>
-        </div>
-        <div id='question_countdown_clock_area' class="question_countdown_clock_area">
-            <?php echo $question->answer_time?>
-        </div>
+<audio id="audio" src="sounds/30s.mp4"></audio>
 
-    </div>
-
-    <audio  id="audio" src="sounds/30s.mp4"></audio>
-
-    <div class="divPlayButton">
-        <button id="button30s" class="play-button" onclick="Play30sButton()">
-        </button>
-    </div>
+<div class="divPlayButton">
+    <button id="button30s" class="play-button" onclick="Play30sButton()">
+    </button>
+</div>
 
 
 </div>
 
 <script>
-    var t=<?php echo $question->answer_time?>;//Time for this question
+    var t =<?php echo $question->answer_time?>;//Time for this question
     var sound = document.getElementById("audio");
 </script>
 
 </body>
 <script>
 
-    var _question_Text_Color='white';
-    var _question_id=<?php echo $question_id?>;
-    var _answer_time=<?php echo $question->answer_time?>;
+    var _question_Text_Color = 'white';
+    var _question_id =<?php echo $question_id?>;
+    var _answer_time =<?php echo $question->answer_time?>;
 
     function post() {
         $.post("http://localhost/crosswordaof/apis/update_question_time.php",
@@ -89,6 +80,8 @@ $textColor = Colors::getTextAnswerColor($question->status);
                 answer_time: _answer_time
             },
             function (data, status) {
+                //Visible the next button
+                document.getElementById("buttonNext").style.visibility = "visible"
             });
     }
 
@@ -105,19 +98,19 @@ $textColor = Colors::getTextAnswerColor($question->status);
         sound.play();
 
         function updateClock() {
-            t=t-1;
+            t = t - 1;
 
             /*
-            if(sound.currentTime>=30){
-                sound.pause()
-                sound.currentTime = 0
-                sound.play()
-            }
-            */
+             if(sound.currentTime>=30){
+             sound.pause()
+             sound.currentTime = 0
+             sound.play()
+             }
+             */
             document.getElementById("question_countdown_clock_area").innerHTML = t;
 
 
-            if (t<=0) {
+            if (t <= 0) {
                 clearInterval(timeinterval);
             }
         }
