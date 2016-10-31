@@ -3,6 +3,7 @@
 class PDOHelper
 {
     public $PDO;
+
     public function __construct()
     {
         try {
@@ -11,7 +12,7 @@ class PDOHelper
             $host = 'localhost';
             $database = 'crosswordgame';
             $user = 'root';
-            $pass = 'mysql';
+            $pass = 'admin123';
 
             $this->PDO = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $user, $pass);
             $this->PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -109,19 +110,30 @@ class PDOHelper
 
 
     /**
-     * @param string $time_begin, string $time_end, int $question_id
+     * @param string $time_begin , string $time_end, int $question_id
      * @return boolean
      */
     public function update_Question_timebegin_end($time_begin, $time_end, $question_id)
     {
         include_once __DIR__ . '/../model/Question.php';
         $sth = $this->PDO->prepare("UPDATE questions SET time_begin=:time_begin,time_end=:time_end WHERE question_id=:question_id ");
-        $sth->bindParam(':time_begin',$time_begin);
-        $sth->bindParam(':time_end',$time_end);
-        $sth->bindParam(':question_id',$question_id);
+        $sth->bindParam(':time_begin', $time_begin);
+        $sth->bindParam(':time_end', $time_end);
+        $sth->bindParam(':question_id', $question_id);
         return $sth->execute();
     }
 
+    /**
+     * @return boolean
+     */
+    public function reset_Question_Status()
+    {
+        include_once __DIR__ . '/../model/Question.php';
+        $status_available = Question::$CLOSEANSWER;
+        $sth = $this->PDO->prepare("UPDATE questions SET status= $status_available WHERE 1");
+        $result = $sth->execute();
+        return $result;
+    }
 
 
 }
