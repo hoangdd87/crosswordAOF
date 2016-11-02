@@ -37,7 +37,7 @@ $textColor = Colors::getTextAnswerColor($question->status);
                       style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"></span>
             <? endforeach; ?>
         </div>
-        <a class="question_id" href="question_answer.php?question_id=<?= $question_id ?>">
+        <a class="question_id" href="users_final_answers.php?question_id=<?= $question_id ?>">
             <?= $question_id ?>
         </a>
     </div>

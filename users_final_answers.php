@@ -12,6 +12,9 @@
 //Prepare to show all quuestions
 include_once __DIR__ . '/util/PDOHelper.php';
 include_once __DIR__ . '/resource/Colors.php';
+include_once __DIR__.'/model/User_Final_Answer.php';
+$pdoHelper=new PDOHelper();
+
 
 function getBackgroundTextAnswerColor($code)
 {
@@ -33,6 +36,9 @@ $question = $pdoHelper->get_Question($question_id);
 $answer_array = $question->getEveryLetterAnswer();
 $backGroundColor = Colors::getBackgroundTextAnswerColor($question->status);
 $textColor = Colors::getTextAnswerColor($question->status);
+
+$users_final_answers=$pdoHelper->get_Users_Final_Answers($question_id);
+
 ?>
 
 
@@ -55,53 +61,20 @@ $textColor = Colors::getTextAnswerColor($question->status);
 
     </div>
 
-    <div class="row_user_answer">
-        <div class="user_name">
-            Apple
+    <?foreach ($users_final_answers as $user_final_answer):?>
+        <div class="row_user_answer">
+            <div class="user_name">
+                <?=$user_final_answer->user_name?>
+            </div>
+            <div class="user_answer_time">
+                <?=$user_final_answer->get_User_Final_Time_Diff()?>
+            </div>
+            <div class="user_answer">
+                <?=$user_final_answer->last_answer?>
+            </div>
         </div>
-        <div class="user_answer_time">
-            20.05
-        </div>
-        <div class="user_answer">
-            Lê Quý Đôn
-        </div>
-    </div>
+    <?endforeach;?>
 
-    <div class="row_user_answer">
-        <div class="user_name">
-            Google
-        </div>
-        <div class="user_answer_time">
-            20.05
-        </div>
-        <div class="user_answer">
-            Lê Quý Đôn
-        </div>
-    </div>
-
-    <div class="row_user_answer">
-        <div class="user_name">
-            Microsoft
-        </div>
-        <div class="user_answer_time">
-            20.05
-        </div>
-        <div class="user_answer">
-            Lê Quý Đôn
-        </div>
-    </div>
-
-    <div class="row_user_answer">
-        <div class="user_name">
-            Facebook
-        </div>
-        <div class="user_answer_time">
-            20.05
-        </div>
-        <div class="user_answer">
-            Lê Quý Đôn
-        </div>
-    </div>
 
 
     <audio id="audio" src="sounds/nguoichoiluachoncauhoi.wav"></audio>
@@ -119,3 +92,4 @@ $textColor = Colors::getTextAnswerColor($question->status);
     }
 </script>
 </html>
+

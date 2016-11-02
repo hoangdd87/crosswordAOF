@@ -7,6 +7,7 @@ class User_Answer
     public $time_answer;
     public $answer;
     public $rec_no;
+    public $question_id;
 
     public function __construct()
     {
@@ -14,7 +15,6 @@ class User_Answer
     }
 
 }
-
 
 
 ?>
