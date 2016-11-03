@@ -24,7 +24,10 @@ $textColor = Colors::getTextAnswerColor($question->status);
 </head>
 
 <body>
+
 <div class="container">
+    <audio id="audio1" src="sounds/batdauhienthicauhoi.mp4" autoplay></audio>
+
 
     <div class="row_correct_answer">
         <a href="question_list.php" class="homebuttoncontainer">
@@ -94,13 +97,13 @@ $textColor = Colors::getTextAnswerColor($question->status);
         function updateClock() {
             t = t - 1;
 
-            /*
-             if(sound.currentTime>=30){
+
+             if(sound.currentTime>=31){
              sound.pause()
              sound.currentTime = 0
              sound.play()
              }
-             */
+
             document.getElementById("question_countdown_clock_area").innerHTML = t;
 
 

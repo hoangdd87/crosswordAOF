@@ -13,8 +13,8 @@ include_once __DIR__.'/../model/Question.php';
 
 
 $pdohelper = new PDOHelper();
-
-$final_user_answer=$pdohelper->get_Users_Final_Answers(1);
+$question=$pdohelper->get_Question(2);
+$final_user_answer=$pdohelper->get_Users_Final_Answers($question);
 
 print_r($final_user_answer);
 //print_r($time1->getTimestamp()+$time1->format('.u'));

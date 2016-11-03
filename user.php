@@ -41,19 +41,22 @@ if (isset($_POST['btnSubmit'])) {
     $answser = $_POST['answer'];
 
     $currentTimeString = Timer::getStringCurrentTimeWithMilisecond();
-    $user_answer = User_Answer_Factory::create($user_logon->user_name, $currentTimeString, $answser, 0, 0);
+    $user_answer = User_Answer_Factory::create($user_logon->user_name, $currentTimeString, $answser, 0);
     $pdoHelper->insert_User_Answer($user_answer);
+    $question=$pdoHelper->get_Question_From_User_Answer($user_answer);
 }
 ?>
 <?php
 $user_answers = $pdoHelper->get_All_User_Answer($user_logon->user_name);
 for ($i = 0; $i <= count($user_answers) - 1; $i++) {
     $user_answer = $user_answers[$i];
+    $question=$pdoHelper->get_Question_From_User_Answer($user_answer);
+    $time_cost=!empty($question)?Timer::getDiff($question->time_begin,$user_answer->time_answer):0;
     if ($i < count($user_answers) - 1) {
-        echo "<p>You answered: <span style=\"color:#FF0000;\">$user_answer->answer</span>  at $user_answer->time_answer (Question $user_answer->question_id)</p>";
+        echo "<p>You answered: <span style=\"color:#FF0000;\">$user_answer->answer</span>  at $time_cost s (Question $question->question_id)</p>";
     }
     else{
-        echo "<p><b>Your last answer: <span style=\"color:#1B0CFF;\">$user_answer->answer</span>  at $user_answer->time_answer (Question $user_answer->question_id)</b></b></p>";
+        echo "<p><b>Your last answer: <span style=\"color:#1B0CFF;\">$user_answer->answer</span>  at $time_cost s (Question $question->question_id)</b></b></p>";
     }
 
 }

@@ -10,12 +10,20 @@ html {
 }
 
 body {
+    opacity: 1;
+    transition: 1s opacity;
+
     font-family: sans-serif;
     font-weight: 100;
     width: 100%;
     height: 100%;
     overflow: hidden;
     margin: 0 0 0 0;
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: none;
 }
 
 .container {
@@ -263,6 +271,61 @@ body {
     vertical-align: middle;
 
 }
+
+.container>.row_user_answer>.buttonYes{
+    position: absolute;
+    display: inline-block;
+    width: 120px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    left: 40%;
+    background-color: #79b536;
+    color: #fff9ff;
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 40px;
+    font-weight: 600;
+    text-decoration: none;
+    /*Text Shadow*/
+    border: none;
+    cursor: pointer;
+}
+.container > .row_user_answer > .buttonYes:hover {
+
+    background-color: #457e0a;
+    text-decoration: none;
+}
+
+.container>.row_user_answer>.buttonNo{
+    position: absolute;
+    display: inline-block;
+    width: 120px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    left: calc(40% + 120px + 30px);
+    background-color: #ff4d56;
+    color: #fff9ff;
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 40px;
+    font-weight: 600;
+    text-decoration: none;
+    /*Text Shadow*/
+    border: none;
+    cursor: pointer;
+}
+.container > .row_user_answer > .buttonNo:hover {
+
+    background-color: #ff0019;
+    text-decoration: none;
+}
+
 
 
 

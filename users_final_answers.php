@@ -12,8 +12,8 @@
 //Prepare to show all quuestions
 include_once __DIR__ . '/util/PDOHelper.php';
 include_once __DIR__ . '/resource/Colors.php';
-include_once __DIR__.'/model/User_Final_Answer.php';
-$pdoHelper=new PDOHelper();
+include_once __DIR__ . '/model/User_Final_Answer.php';
+$pdoHelper = new PDOHelper();
 
 
 function getBackgroundTextAnswerColor($code)
@@ -33,18 +33,21 @@ function getTextAnswerColor($code)
 $question_id = isset($_GET['question_id']) ? $_GET['question_id'] : 1;
 $pdoHelper = new PDOHelper();
 $question = $pdoHelper->get_Question($question_id);
+//Get every letter of correct answer
 $answer_array = $question->getEveryLetterAnswer();
 $backGroundColor = Colors::getBackgroundTextAnswerColor($question->status);
 $textColor = Colors::getTextAnswerColor($question->status);
 
-$users_final_answers=$pdoHelper->get_Users_Final_Answers($question_id);
+$users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
 
 ?>
 
 
 <body>
+<audio id="audio1" src="sounds/batdautongketcongtraloi.wav" autoplay></audio>
 <div class="container">
     <div class="row_correct_answer">
+
         <a href="question_list.php" class="homebuttoncontainer">
             <img alt="Home" src="images/Home-icon.png" class="image">
         </a>
@@ -55,33 +58,35 @@ $users_final_answers=$pdoHelper->get_Users_Final_Answers($question_id);
                       style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"></span>
             <? endforeach; ?>
         </div>
-        <span class="question_id">
+        <a  href="question_list.php" class="question_id">
              <?= $question_id ?>
-        </span>
+        </a>
 
     </div>
 
-    <?foreach ($users_final_answers as $user_final_answer):?>
+    <? foreach ($users_final_answers as $user_final_answer): ?>
         <div class="row_user_answer">
             <div class="user_name">
-                <?=$user_final_answer->user_name?>
+                <?= $user_final_answer->user_name ?>
             </div>
             <div class="user_answer_time">
-                <?=$user_final_answer->get_User_Final_Time_Diff()?>
+                <?= $user_final_answer->get_User_Final_Time_Diff($question) ?>
             </div>
             <div class="user_answer">
-                <?=$user_final_answer->last_answer?>
+                <?= $user_final_answer->last_answer ?>
             </div>
         </div>
-    <?endforeach;?>
+    <? endforeach; ?>
 
 
-
-    <audio id="audio" src="sounds/nguoichoiluachoncauhoi.wav"></audio>
-
-    <button class="play-music-button" onclick="PlaySound()">
-    </button>
-
+    <div class="row_user_answer" style="vertical-align: middle">
+        <button class="buttonYes">
+            Đ
+        </button>
+        <button class="buttonNo">
+            S
+        </button>
+    </div>
 
 </div>
 </body>

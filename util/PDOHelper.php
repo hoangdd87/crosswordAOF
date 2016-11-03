@@ -47,7 +47,7 @@ class PDOHelper
     public function get_All_User_Answer($user_name)
     {
         include_once __DIR__ . '/../model/User_Answer.php';
-        $sth = $this->PDO->prepare("SELECT user_name, time_answer, answer, rec_no, question_id FROM users_answers 
+        $sth = $this->PDO->prepare("SELECT user_name, time_answer, answer, rec_no FROM users_answers 
                                   WHERE user_name=:user_name ORDER BY time_answer ASC ");
         $sth->bindParam(':user_name', $user_name);
         $sth->execute();
@@ -60,19 +60,13 @@ class PDOHelper
      */
     public function insert_User_Answer($user_answer)
     {
-        include_once __DIR__.'/../model/User_Answer.php';
-        //Get the question_id
-        $question = $this->get_Question_From_User_Answer($user_answer);
-        $user_answer->question_id=empty($question)?0:$question->question_id;
+        include_once __DIR__ . '/../model/User_Answer.php';
 
-
-
-        $sth = $this->PDO->prepare("INSERT INTO users_answers(user_name, time_answer, answer, question_id) 
-                                    VALUES (:user_name, :time_answer, :answer, :question_id)");
+        $sth = $this->PDO->prepare("INSERT INTO users_answers(user_name, time_answer, answer) 
+                                    VALUES (:user_name, :time_answer, :answer)");
         $sth->bindParam(':user_name', $user_answer->user_name);
         $sth->bindParam(':time_answer', $user_answer->time_answer);
         $sth->bindParam(':answer', $user_answer->answer);
-        $sth->bindParam(':question_id',$user_answer->question_id);
         return $sth->execute();
     }
 
@@ -160,21 +154,21 @@ class PDOHelper
     }
 
     /**
-     * @param int $question_id
+     * @param Question $question
      * @return User_Final_Answer[]
      */
-    public function get_Users_Final_Answers($question_id)
+    public function get_Users_Final_Answers($question)
     {
         include_once __DIR__ . '/../model/User_Final_Answer.php';
+        $time_begin = $question->time_begin;
+        $time_end = $question->time_end;
         //Get time when user answered this question
-        $sth = $this->PDO->prepare("select users.user_name, time_begin, correct_answer, question_id, last_time_answer, last_answer from users 
-                                    left join (select questions.time_begin, questions.correct_answer, user_last_answer.* from questions 
-                                    INNER join (select user_name, question_id, time_answer as last_time_answer, answer as last_answer 
-                                    from users_answers where time_answer in ((select max(time_answer) from users_answers 
-                                    where question_id=:question_id group by user_name))) user_last_answer 
-                                    on questions.question_id=user_last_answer.question_id) user_lastanswer_question 
-                                    on users.user_name=user_lastanswer_question.user_name where role='user' order by last_time_answer");
-        $sth->bindParam(':question_id', $question_id);
+        $sth = $this->PDO->prepare("select users.user_name, time_answer as last_time_answer, answer as last_answer 
+        from users LEFT join (select * from users_answers where time_answer in (select max(time_answer) from users_answers 
+        where time_answer >= :time_begin and time_answer <= :time_end group by user_name)) b 
+        on users.user_name=b.user_name where users.role='user' order by last_time_answer ASC");
+        $sth->bindParam(':time_begin', $time_begin);
+        $sth->bindParam(':time_end', $time_end);
         $sth->execute();
         return $sth->fetchAll(PDO::FETCH_CLASS, "User_Final_Answer");
     }
@@ -183,10 +177,11 @@ class PDOHelper
      * @param User_Answer $user_answer
      * @return Question
      */
-    public function get_Question_From_User_Answer($user_answer){
-        include_once __DIR__.'/../model/Question.php';
-        include_once __DIR__.'/../model/User_Answer.php';
-        $time_answer=$user_answer->time_answer;
+    public function get_Question_From_User_Answer($user_answer)
+    {
+        include_once __DIR__ . '/../model/Question.php';
+        include_once __DIR__ . '/../model/User_Answer.php';
+        $time_answer = $user_answer->time_answer;
         $sth = $this->PDO->prepare("SELECT question_id, question, correct_answer, status, answer_time, time_begin, time_end 
                                   FROM questions WHERE time_begin<=:time_answer and :time_answer<=time_end");
         $sth->bindParam(':time_answer', $time_answer);
