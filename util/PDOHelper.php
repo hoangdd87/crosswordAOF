@@ -99,23 +99,25 @@ class PDOHelper
     }
 
     /**
-     * @param User_Answer $user_anser
+     * @param  int $question_id
+     * @param  int $status
      * @return Question[]
      */
-    public function update_Question_Status($status_code)
+    public function update_Question_Status($question_id, $status)
     {
         include_once __DIR__ . '/../model/Question.php';
-        $sth = $this->PDO->prepare("SELECT question_id, question, correct_answer, status 
-                                  FROM questions WHERE 1 ");
-        $sth->execute();
-        return $sth->fetchAll(PDO::FETCH_CLASS, "Question");
+        $sth = $this->PDO->prepare("UPDATE questions SET status=:status WHERE question_id=:question_id ");
+        $sth->bindParam(':status', $status);
+        $sth->bindParam(':question_id', $question_id);
+        return $sth->execute();
+
     }
 
 
     /**
-     * @param string $time_begin , string $time_end, int $question_id
-     * @return boolean
-     */
+ * @param string $time_begin , string $time_end, int $question_id
+ * @return boolean
+ */
     public function update_Question_timebegin_end($time_begin, $time_end, $question_id)
     {
         include_once __DIR__ . '/../model/Question.php';
@@ -125,6 +127,8 @@ class PDOHelper
         $sth->bindParam(':question_id', $question_id);
         return $sth->execute();
     }
+
+
 
     /**
      * @return boolean

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="jquery-3.1.1.min.js"></script>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="mycss.css">
     <title>Question & Answer</title>
@@ -44,7 +45,9 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
 
 
 <body>
-<audio id="audio1" src="sounds/batdautongketcongtraloi.wav" autoplay></audio>
+<audio id="batdautongketcongtraloi" src="sounds/batdautongketcongtraloi.wav" autoplay></audio>
+<audio id="traloidung" src="sounds/traloidung.wav"></audio>
+<audio id="traloisai" src="sounds/traloisai.mp3"></audio>
 <div class="container">
     <div class="row_correct_answer">
 
@@ -58,8 +61,8 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
                       style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"></span>
             <? endforeach; ?>
         </div>
-        <a  href="question_list.php" class="question_id">
-             <?= $question_id ?>
+        <a href="question_list.php" class="question_id">
+            <?= $question_id ?>
         </a>
 
     </div>
@@ -80,21 +83,51 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
 
 
     <div class="row_user_answer" style="vertical-align: middle">
-        <button class="buttonYes">
+        <button class="buttonYes" onclick="buttonYesClick()">
             Đ
         </button>
-        <button class="buttonNo">
+        <button class="buttonNo" onclick="buttonNoClick()">
             S
         </button>
     </div>
 
 </div>
+<script>
+    var _question_id=<?=$question_id?>;
+    var _status_opened=<?=Question::$OPENEDANSWER?>;
+    var _status_disable=<?=Question::$DISABLEANSWER?>;
+</script>
+
 </body>
 <script>
-    function PlaySound() {
-        var sound = document.getElementById("audio");
-        sound.play();
+
+    function buttonYesClick() {
+        var soundYes = document.getElementById("traloidung");
+        soundYes.play();
+        post(_status_opened);
+        /*Update status to the question*/
+
     }
+    function buttonNoClick() {
+        var soundNo = document.getElementById("traloisai");
+        soundNo.play();
+        post(_status_disable);
+    }
+
+    function post(q_status) {
+        $.post("http://localhost/crosswordaof/apis/update_question_status.php",
+            {
+                question_id: _question_id,
+                status: q_status
+            },
+            function (data, status) {
+                if(q_status==_status_opened){
+
+                }
+
+            });
+    }
+
 </script>
 </html>
 
