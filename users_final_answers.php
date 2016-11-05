@@ -37,6 +37,7 @@ $question = $pdoHelper->get_Question($question_id);
 //Get every letter of correct answer
 $answer_array = $question->getEveryLetterAnswer();
 $backGroundColor = Colors::getBackgroundTextAnswerColor($question->status);
+
 $textColor = Colors::getTextAnswerColor($question->status);
 
 $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
@@ -55,10 +56,9 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
             <img alt="Home" src="images/Home-icon.png" class="image">
         </a>
         <div class="correct_answer">
-
-            <? foreach ($answer_array as $letter): ?>
-                <span class="lettercell"
-                      style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"></span>
+            <? foreach ($answer_array as $character): ?>
+                <span class="lettercell" style="background-color: <? echo $backGroundColor ?>;
+                    color: <?= $textColor ?>"><?= $character ?></span>
             <? endforeach; ?>
         </div>
         <a href="question_list.php" class="question_id">
@@ -93,9 +93,13 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
 
 </div>
 <script>
-    var _question_id=<?=$question_id?>;
-    var _status_opened=<?=Question::$OPENEDANSWER?>;
-    var _status_disable=<?=Question::$DISABLEANSWER?>;
+    var _question_id =<?=$question_id?>;
+    var _status_opened =<?=Question::$OPENEDANSWER?>;
+    var _status_disable =<?=Question::$DISABLEANSWER?>;
+    var _backgroundcoloropened="<?=Colors::$OPENEDBACKGROUND?>";
+    var _backgroundcolordisabled="<?=Colors::$DISABLEBACKGROUND?>";
+    var _textcolorOpened="<?=Colors::$TEXTANSWERCOLOR?>";
+    var _textcolorTransparent="<?=Colors::$TRANSPARENTCOLOR?>";
 </script>
 
 </body>
@@ -121,11 +125,23 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
                 status: q_status
             },
             function (data, status) {
-                if(q_status==_status_opened){
+                if (q_status == _status_opened) {
+                    changeColor(_backgroundcoloropened,_textcolorOpened);
 
+                }
+                else if(q_status==_status_disable){
+                    changeColor(_backgroundcolordisabled, _textcolorTransparent);
                 }
 
             });
+    }
+
+    function changeColor(backgroundtextcolor,textcolor) {
+        var x=document.getElementsByClassName("lettercell");
+        for(i=0;i<x.length;i++){
+            x[i].style.backgroundColor=backgroundtextcolor;
+            x[i].style.color=textcolor;
+        }
     }
 
 </script>

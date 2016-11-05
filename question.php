@@ -37,7 +37,7 @@ $textColor = Colors::getTextAnswerColor($question->status);
         <div class="correct_answer">
             <? foreach ($answer_array as $letter): ?>
                 <span class="lettercell"
-                      style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"></span>
+                      style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"><?= $letter ?></span>
             <? endforeach; ?>
         </div>
         <a class="question_id" href="users_final_answers.php?question_id=<?= $question_id ?>">
@@ -98,11 +98,11 @@ $textColor = Colors::getTextAnswerColor($question->status);
             t = t - 1;
 
 
-             if(sound.currentTime>=31){
-             sound.pause()
-             sound.currentTime = 0
-             sound.play()
-             }
+            if (sound.currentTime >= 31) {
+                sound.pause()
+                sound.currentTime = 0
+                sound.play()
+            }
 
             document.getElementById("question_countdown_clock_area").innerHTML = t;
 
@@ -114,6 +114,8 @@ $textColor = Colors::getTextAnswerColor($question->status);
 
         var timeinterval = setInterval(updateClock, 1000);
     }
+
+
 
 </script>
 </html>
