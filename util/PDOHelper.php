@@ -12,7 +12,7 @@ class PDOHelper
             $host = 'localhost';
             $database = 'crosswordgame';
             $user = 'root';
-            $pass = 'admin123';
+            $pass = 'mysql';
 
             $this->PDO = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $user, $pass);
             $this->PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

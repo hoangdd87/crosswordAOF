@@ -78,6 +78,33 @@ $textColor = Colors::getTextAnswerColor($question->status);
                 answer_time: _answer_time
             },
             function (data, status) {
+                //Change color of text area
+                document.getElementById("question_text_area_id").style.color = _question_Text_Color;
+
+                //hide button 30s
+                document.getElementById("button30s").style.display = 'none';
+                //Play music sound
+                sound.play();
+
+                function updateClock() {
+                    t = t - 1;
+
+
+                    if (sound.currentTime >= 31) {
+                        sound.pause()
+                        sound.currentTime = 0
+                        sound.play()
+                    }
+
+                    document.getElementById("question_countdown_clock_area").innerHTML = t;
+
+
+                    if (t <= 0) {
+                        clearInterval(timeinterval);
+                    }
+                }
+
+                var timeinterval = setInterval(updateClock, 1000);
 
             });
     }
@@ -86,33 +113,7 @@ $textColor = Colors::getTextAnswerColor($question->status);
         //post start time to server
         post();
 
-        //Change color of text area
-        document.getElementById("question_text_area_id").style.color = _question_Text_Color;
 
-        //hide button 30s
-        document.getElementById("button30s").style.display = 'none';
-        //Play music sound
-        sound.play();
-
-        function updateClock() {
-            t = t - 1;
-
-
-            if (sound.currentTime >= 31) {
-                sound.pause()
-                sound.currentTime = 0
-                sound.play()
-            }
-
-            document.getElementById("question_countdown_clock_area").innerHTML = t;
-
-
-            if (t <= 0) {
-                clearInterval(timeinterval);
-            }
-        }
-
-        var timeinterval = setInterval(updateClock, 1000);
     }
 
 
