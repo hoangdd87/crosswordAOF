@@ -40,7 +40,8 @@ class Question
      */
     public function getEveryLetterAnswer()
     {
-        return str_split($this->correct_answer);
+        return preg_split('//u', $this->correct_answer, -1, PREG_SPLIT_NO_EMPTY);
+        //return str_split($this->correct_answer);
     }
 
 

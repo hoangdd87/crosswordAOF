@@ -44,6 +44,11 @@ $textColor = Colors::getTextAnswerColor($question->status);
             <?= $question_id ?>
         </a>
     </div>
+
+    <button class="viewQuestionContainer" id="viewQuestion" onclick="viewQuestion()">
+        <img alt="view" src="images/view.png" class="ImageView">
+    </button>
+
     <div class="question_area">
         <div id="question_text_area_id" class="question_text_area" style="color: transparent">
             <?= $question->question ?>
@@ -113,6 +118,12 @@ $textColor = Colors::getTextAnswerColor($question->status);
         //post start time to server
         post();
 
+
+    }
+    
+    function viewQuestion() {
+        document.getElementById("question_text_area_id").style.color = _question_Text_Color;
+        document.getElementById("viewQuestion").style.display="none";
 
     }
 
