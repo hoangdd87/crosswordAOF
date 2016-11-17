@@ -1,0 +1,22 @@
+1. Open Ampps Application -> MySQL Tab -> Configuration.
+
+2. In [mysqld] section, add the following line: innodb_force_recovery = 1
+
+3. Save the file and try starting MySQL
+
+4. Remove that line which you just added and Save
+
+
+//------------------------------------------------------------
+
+open the following folder
+Ampps/mysql/data/
+delete all files like ib_logfile** and mysql-bin.index,mysql-bin.****,
+then start or restart MySQL via the AMPPS pannel, it maybe work fine for you.
+
+//-------------------------------------------------------------
+
+
+
+
+

@@ -10,7 +10,7 @@ class PDOHelper
 
             //include($_SERVER['DOCUMENT_ROOT'] . '/variables/variables_crossword.php');
             $host = 'localhost';
-            $database = 'crosswordgame';
+            $database = 'crosswordaof';
             $user = 'root';
             $pass = 'mysql';
 
@@ -193,6 +193,15 @@ class PDOHelper
         $sth->execute();
         return $sth->fetch();
 
+    }
+
+    /*
+     * @return boolean
+     */
+    public function clear_user_answer(){
+        include_once __DIR__ . '/../model/User_Answer.php';
+        $sth = $this->PDO->prepare("DELETE FROM users_answers WHERE 1");
+        return $sth->execute();
     }
 
 
