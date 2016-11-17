@@ -60,15 +60,26 @@ for ($i = 0; $i <= count($user_answers) - 1; $i++) {
     }
 
 }
+echo '<p id="clientTime"> </p>'
 
 ?>
 <form action="" method="post">
     <label>Enter your answer :</label>
     <input type="text" name="answer" class="form-control" autofocus required>
 
-    <button type="submit" name="btnSubmit" class="btn btn-primary pull-right">Submit</button>
+    <button type="submit" name="btnSubmit" class="btn btn-primary pull-right" onclick="showClientTime()" >Submit</button>
 
 </form>
+<script>
+    function showClientTime() {
+        currentTime=new Date();
+        current_hour=currentTime.getHours();
+        current_minute=currentTime.getMinutes();
+        current_second=currentTime.getSeconds();
+        currentTimeString=current_hour.toString()+"H "+current_minute.toString()+"m"+current_second.toString()+"s";
 
+
+    }
+</script>
 
 

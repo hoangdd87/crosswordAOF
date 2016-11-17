@@ -10,7 +10,7 @@ class PDOHelper
 
             //include($_SERVER['DOCUMENT_ROOT'] . '/variables/variables_crossword.php');
             $host = 'localhost';
-            $database = 'crosswordaof';
+            $database = 'crosswordgame';
             $user = 'root';
             $pass = 'mysql';
 
