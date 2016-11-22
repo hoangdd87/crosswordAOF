@@ -10,9 +10,9 @@ class PDOHelper
 
             //include($_SERVER['DOCUMENT_ROOT'] . '/variables/variables_crossword.php');
             $host = 'localhost';
-            $database = 'crosswordgame';
+            $database = 'crosswordaof';
             $user = 'root';
-            $pass = 'mysql';
+            $pass = 'admin123';
 
             $this->PDO = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $user, $pass);
             $this->PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

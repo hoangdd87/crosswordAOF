@@ -77,9 +77,7 @@ echo '<p id="clientTime"> </p>'
         current_minute=currentTime.getMinutes();
         current_second=currentTime.getSeconds();
         currentTimeString=current_hour.toString()+"H "+current_minute.toString()+"m"+current_second.toString()+"s";
-
-
-    }
+}
 </script>
 
 
