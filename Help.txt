@@ -18,5 +18,51 @@ then start or restart MySQL via the AMPPS pannel, it maybe work fine for you.
 
 
 
+43
+down vote
+In your httpd.conf make sure you have:
+
+Listen *:80
+And if you are using VirtualHosts then set them as given below:
+
+NameVirtualHost *
+<VirtualHost *>
+   ...
+</VirtualHost>
+
+-------------------------------------------------------------------
+
+Open httpd.conf of Apache server (backup first) Look for the the following : Listen
+
+Change the line to
+
+Listen *:80
+Still in httpd.conf, look for the following (or similar):
+
+<Directory />
+    Options FollowSymLinks
+    AllowOverride None
+    Order deny,allow
+    Allow from all
+    Deny from all
+</Directory>
+Change this block to :
+
+<Directory />
+    Options FollowSymLinks
+    AllowOverride None
+    Order deny,allow
+    Allow from all
+    #Deny from all
+</Directory>
+Save httpd.conf and restart apache
+
+Open port 80 of the server such that everyone can access your server.
+
+Open Control Panel >> System and Security >> Windows Firewall then click on “Advance Setting” and then select “Inbound Rules” from the left panel and then click on “Add Rule…”. Select “PORT” as an option from the list and then in the next screen select “TCP” protocol and enter port number “80” under “Specific local port” then click on the ”Next” button and select “Allow the Connection” and then give the general name and description to this port and click Done.
+
+Restart WAMP and access your machine in LAN or WAN.
+
+
 
 
