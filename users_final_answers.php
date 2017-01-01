@@ -9,6 +9,7 @@
 
 
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
 
 //Prepare to show all quuestions
 include_once __DIR__ . '/util/PDOHelper.php';
@@ -56,10 +57,10 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
             <img alt="Home" src="images/Home-icon.png" class="image">
         </a>
         <div class="correct_answer">
-            <? foreach ($answer_array as $character): ?>
+            <?php foreach ($answer_array as $character): ?>
                 <span class="lettercell" style="background-color: <? echo $backGroundColor ?>;
                     color: <?= $textColor ?>"><?= $character ?></span>
-            <? endforeach; ?>
+            <?php endforeach; ?>
         </div>
         <a href="question_list.php" class="question_id">
             <?= $question_id ?>
@@ -67,7 +68,7 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
 
     </div>
 
-    <? foreach ($users_final_answers as $user_final_answer): ?>
+    <?php foreach ($users_final_answers as $user_final_answer): ?>
         <div class="row_user_answer">
             <div class="user_name">
                 <?= $user_final_answer->user_name ?>
@@ -79,7 +80,7 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
                 <?= $user_final_answer->last_answer ?>
             </div>
         </div>
-    <? endforeach; ?>
+    <?php endforeach; ?>
 
 
     <div class="row_user_answer" style="vertical-align: middle">

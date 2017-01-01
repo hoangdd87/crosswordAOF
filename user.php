@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
 /**
  * Created by PhpStorm.
  * User: HoangDD
@@ -53,10 +54,12 @@ for ($i = 0; $i <= count($user_answers) - 1; $i++) {
     $question=$pdoHelper->get_Question_From_User_Answer($user_answer);
     $time_cost=!empty($question)?Timer::getDiff($question->time_begin,$user_answer->time_answer):0;
     if ($i < count($user_answers) - 1) {
-        echo "<p>You answered: <span style=\"color:#FF0000;\">$user_answer->answer</span>  at $time_cost s (Question $question->question_id)</p>";
+        echo "<p>You answered: <span style=\"color:#FF0000;\">$user_answer->answer</span>  at $time_cost s (Question $question->question_id) ".
+            ($time_cost>0?" (Successful)":" (Unsuccessful)")."</p>";
     }
     else{
-        echo "<p><b>Your last answer: <span style=\"color:#1B0CFF;\">$user_answer->answer</span>  at $time_cost s (Question $question->question_id)</b></b></p>";
+        echo "<p><b>Your last answer: <span style=\"color:#1B0CFF;\">$user_answer->answer</span>  at $time_cost s (Question $question->question_id)</b></b>".
+            ($time_cost>0?" (Successful)":" (Unsuccessful)")."</p>";
     }
 
 }

@@ -28,11 +28,11 @@ $questions_list = $pdoHelper->get_All_Questions();
         ?>
         <div class="row_correct_answer">
             <div class="correct_answer">
-                <? foreach ($answer_array as $character): ?>
+                <?php foreach ($answer_array as $character): ?>
 
-                    <span class="lettercell" style="background-color: <? echo $backgroundanswercolor ?>;
+                    <span class="lettercell" style="background-color: <?php echo $backgroundanswercolor ?>;
                         color: <?= $answerlettercolor ?>"><?= $character ?></span>
-                <? endforeach; ?>
+                <?php endforeach; ?>
             </div>
             <a class="question_id" href="question.php?question_id=<?= $question->question_id ?>">
                 <?= $question->question_id ?>

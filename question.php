@@ -35,10 +35,10 @@ $textColor = Colors::getTextAnswerColor($question->status);
         </a>
 
         <div class="correct_answer">
-            <? foreach ($answer_array as $letter): ?>
+            <?php foreach ($answer_array as $letter): ?>
                 <span class="lettercell"
                       style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"><?= $letter ?></span>
-            <? endforeach; ?>
+            <?php endforeach; ?>
         </div>
         <a class="question_id" href="users_final_answers.php?question_id=<?= $question_id ?>">
             <?= $question_id ?>

@@ -224,7 +224,7 @@ body.fade-out {
     position: relative;
     display: inline-block;
     float: left;
-    width: 200px;
+    width: 250px;
     height: 60px;
     line-height: 60px;
     color: #fff;
@@ -257,7 +257,7 @@ body.fade-out {
 .container > .row_user_answer > .user_answer {
     position: relative;
     display: inline-block;
-    width: calc(100% - 350px);
+    width: calc(100% - 450px);
     height: 60px;
     line-height: 60px;
     color: #801f03;
