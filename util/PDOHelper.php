@@ -31,7 +31,7 @@ class PDOHelper
     public function get_User_by_username_and_pass($username, $password)
     {
         include_once __DIR__ . '/../model/User.php';
-        $sth = $this->PDO->prepare("SELECT user_name, password, role FROM users 
+        $sth = $this->PDO->prepare("SELECT user_name, password, role, teamname FROM users 
                           WHERE user_name=:user_name AND password=:password");
         $sth->bindParam(':user_name', $username);
         $sth->bindParam(':password', $password);
@@ -149,7 +149,7 @@ class PDOHelper
     public function get_User_By_Role($role)
     {
         include_once __DIR__ . '/../model/User.php';
-        $sth = $this->PDO->prepare("SELECT user_name, password, role FROM users 
+        $sth = $this->PDO->prepare("SELECT user_name, password, role, teamname FROM users 
                           WHERE role=:role");
         $sth->bindParam(':role', $role);
         $sth->execute();
@@ -167,7 +167,7 @@ class PDOHelper
         $time_begin = $question->time_begin;
         $time_end = $question->time_end;
         //Get time when user answered this question
-        $sth = $this->PDO->prepare("select users.user_name, time_answer as last_time_answer, answer as last_answer 
+        $sth = $this->PDO->prepare("select users.user_name, time_answer as last_time_answer, answer as last_answer, users.teamname	 
         from users LEFT join (select * from users_answers where time_answer in (select max(time_answer) from users_answers 
         where time_answer >= :time_begin and time_answer <= :time_end group by user_name)) b 
         on users.user_name=b.user_name where users.role='user' order by last_time_answer ASC");

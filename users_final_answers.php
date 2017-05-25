@@ -73,7 +73,7 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
     <?php foreach ($users_final_answers as $user_final_answer): ?>
         <div class="row_user_answer">
             <div class="user_name">
-                <?= $user_final_answer->user_name ?>
+                <?= $user_final_answer->teamname ?>
             </div>
             <div class="user_answer_time">
                 <?= $user_final_answer->get_User_Final_Time_Diff($question) ?>

@@ -29,7 +29,7 @@ if ($user_logon->role <> "user") {
 
 ?>
 <h2>
-    <?php echo "Hello $user_logon->user_name" ?>
+    <?php echo "Hello $user_logon->teamname" ?>
 </h2>
 <p style="text-align:right">
     <a href="logout.php">Logout</a>

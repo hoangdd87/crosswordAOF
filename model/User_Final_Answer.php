@@ -11,6 +11,7 @@ class User_Final_Answer
     public $user_name;
     public $last_time_answer;
     public $last_answer;
+    public $teamname;
 
     /**
      * @param Question $question
