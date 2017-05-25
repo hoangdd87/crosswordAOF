@@ -21,6 +21,9 @@ $questions_list = $pdoHelper->get_All_Questions();
 
 <body>
 <div class="container">
+    <a href="hinhanh.php" class="hinhanh_link">
+        A
+    </a>
     <?php foreach ($questions_list as $question):
         $answerlettercolor = Colors::getTextAnswerColor($question->status);
         $backgroundanswercolor = Colors::getBackgroundTextAnswerColor($question->status);

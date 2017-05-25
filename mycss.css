@@ -60,15 +60,13 @@ body.fade-out {
 
 .container > .row_correct_answer > .correct_answer > .lettercell {
     position: relative;
-    font-weight: 400;
+    font-weight: 600;
     font-family: tahoma, verdana, arial, sans-serif;
     font-size: 36px;
-
     display: inline-block;
     width: 50px;
     height: 50px;
     margin-left: 5px;
-
     text-align: center;
     vertical-align: middle;
     margin-top: auto;
@@ -83,7 +81,28 @@ body.fade-out {
     border: 1px solid transparent;
     /*****/
 }
+.hinhanh_link{
+    position: absolute;
+    bottom:0;
+    left: 0;
+    display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: white;
+    color: #FF9800;
 
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 40px;
+    font-weight: 600;
+    text-decoration: none;
+    /*Text Shadow*/
+    border: none;
+    cursor: pointer;
+}
 .container > .row_correct_answer > .question_id {
     position: absolute;
     display: inline-block;
@@ -224,7 +243,7 @@ body.fade-out {
     position: relative;
     display: inline-block;
     float: left;
-    width: 250px;
+    width: 200px;
     height: 60px;
     line-height: 60px;
     color: #fff;
@@ -257,7 +276,7 @@ body.fade-out {
 .container > .row_user_answer > .user_answer {
     position: relative;
     display: inline-block;
-    width: calc(100% - 450px);
+    width: calc(100% - 350px);
     height: 60px;
     line-height: 60px;
     color: #801f03;
@@ -342,15 +361,4 @@ body.fade-out {
     width: 50px;
     height: 50px;
 }
-
-
-
-
-
-
-
-
-
-
-
 

@@ -51,6 +51,7 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
 <audio id="traloidung" src="sounds/traloidung.wav"></audio>
 <audio id="traloisai" src="sounds/traloisai.mp3"></audio>
 <div class="container">
+
     <div class="row_correct_answer">
 
         <a href="question_list.php" class="homebuttoncontainer">
@@ -62,11 +63,12 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
                     color: <?= $textColor ?>"><?= $character ?></span>
             <?php endforeach; ?>
         </div>
-        <a href="question_list.php" class="question_id">
-            <?= $question_id ?>
+        <a href="#" class="question_id">
+            <?= $question->question_id ?>
         </a>
 
     </div>
+
 
     <?php foreach ($users_final_answers as $user_final_answer): ?>
         <div class="row_user_answer">
@@ -91,16 +93,19 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
             S
         </button>
     </div>
+    <a href="hinhanh.php" class="hinhanh_link" style="bottom: 0;left: 0">
+        A
+    </a>
 
 </div>
 <script>
     var _question_id =<?=$question_id?>;
     var _status_opened =<?=Question::$OPENEDANSWER?>;
     var _status_disable =<?=Question::$DISABLEANSWER?>;
-    var _backgroundcoloropened="<?=Colors::$OPENEDBACKGROUND?>";
-    var _backgroundcolordisabled="<?=Colors::$DISABLEBACKGROUND?>";
-    var _textcolorOpened="<?=Colors::$TEXTANSWERCOLOR?>";
-    var _textcolorTransparent="<?=Colors::$TRANSPARENTCOLOR?>";
+    var _backgroundcoloropened = "<?=Colors::$OPENEDBACKGROUND?>";
+    var _backgroundcolordisabled = "<?=Colors::$DISABLEBACKGROUND?>";
+    var _textcolorOpened = "<?=Colors::$TEXTANSWERCOLOR?>";
+    var _textcolorTransparent = "<?=Colors::$TRANSPARENTCOLOR?>";
 </script>
 
 </body>
@@ -127,21 +132,21 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
             },
             function (data, status) {
                 if (q_status == _status_opened) {
-                    changeColor(_backgroundcoloropened,_textcolorOpened);
+                    changeColor(_backgroundcoloropened, _textcolorOpened);
 
                 }
-                else if(q_status==_status_disable){
+                else if (q_status == _status_disable) {
                     changeColor(_backgroundcolordisabled, _textcolorTransparent);
                 }
 
             });
     }
 
-    function changeColor(backgroundtextcolor,textcolor) {
-        var x=document.getElementsByClassName("lettercell");
-        for(i=0;i<x.length;i++){
-            x[i].style.backgroundColor=backgroundtextcolor;
-            x[i].style.color=textcolor;
+    function changeColor(backgroundtextcolor, textcolor) {
+        var x = document.getElementsByClassName("lettercell");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.backgroundColor = backgroundtextcolor;
+            x[i].style.color = textcolor;
         }
     }
 

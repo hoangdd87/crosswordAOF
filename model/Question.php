@@ -22,17 +22,17 @@ class Question
     public function isAnswerClosed()
     {
 
-        return $this->status === self::$CLOSEANSWER;
+        return $this->status == self::$CLOSEANSWER;
     }
 
     public function isAnswerDisabled()
     {
-        return $this->status === self::$DISABLEANSWER;
+        return $this->status == self::$DISABLEANSWER;
     }
 
     public function isAnswerOpened()
     {
-        return $this->status === self::$OPENEDANSWER;
+        return $this->status == self::$OPENEDANSWER;
     }
 
     /*

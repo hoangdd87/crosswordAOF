@@ -1,11 +1,11 @@
 <?php
     class Colors{
-        public static $TEXTANSWERCOLOR='#DAE5E8';// Text AnswerColor. Use when answer are opened
+        public static $TEXTANSWERCOLOR='blue';// Text AnswerColor. Use when answer are opened
         public static $TRANSPARENTCOLOR='transparent';//color of text when it's hiden (Available and disable)
 
-        public static $AVAILABLEBACKGROUND='#fff0f5';//White - BackgroundColor of an answer's cell row that one user can choose
+        public static $AVAILABLEBACKGROUND='#52BAFF';//White - BackgroundColor of an answer's cell row that one user can choose
         public static $DISABLEBACKGROUND='#BBBBBB';//Grey - BackgroundColor of an answer'cell row that an user choose already but answer wrong
-        public static $OPENEDBACKGROUND='#52BAFF';//Nearly green - BackgroundColor of an answer'cell row that is opened by user
+        public static $OPENEDBACKGROUND='#white';//Nearly green - BackgroundColor of an answer'cell row that is opened by user
 
         //Question color
         public static $questionColor='#fff0f5';
