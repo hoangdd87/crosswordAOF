@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2017 at 05:02 PM
--- Server version: 5.6.31
--- PHP Version: 5.6.25
+-- Generation Time: Aug 29, 2017 at 04:38 AM
+-- Server version: 5.6.36
+-- PHP Version: 5.4.42
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -41,12 +41,12 @@ CREATE TABLE IF NOT EXISTS `questions` (
 --
 
 INSERT INTO `questions` (`question_id`, `question`, `correct_answer`, `status`, `answer_time`, `time_begin`, `time_end`) VALUES
-(1, 'Hội trường diễn ra chung kết Olympic Kinh tế học là hội trường gì?', '700', 0, 30, '2017-05-25 23:40:32.727100', '2017-05-25 23:41:02.727100'),
-(2, 'Đây là một trong 7 kì quan của học viện tài chính?', 'Vườntìnhyêu', 1, 30, '2017-05-25 18:32:32.049000', '2017-05-25 18:33:02.049000'),
-(3, 'Tên bộ trưởng Bộ Tài chính đầu tiên của nước ta?', 'LêVănHiến', 2, 30, '2017-05-25 23:56:30.470600', '2017-05-25 23:57:00.470600'),
+(1, 'Hội trường diễn ra chung kết Olympic Kinh tế học là hội trường gì?', '700', 0, 30, '2017-08-26 23:07:29.131600', '2017-08-26 23:07:59.131600'),
+(2, 'Đây là một trong 7 kì quan của học viện tài chính?', 'Vườntìnhyêu', 0, 30, '2017-08-26 23:07:54.606500', '2017-08-26 23:08:24.606500'),
+(3, 'Tên bộ trưởng Bộ Tài chính đầu tiên của nước ta?', 'LêVănHiến', 0, 30, '2017-08-26 23:06:59.641100', '2017-08-26 23:07:29.641100'),
 (4, 'Tên của con vật biểu tượng cho toà nhà chính HVTC', 'ĐạiBàng', 0, 30, '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000'),
 (5, 'Hãy cho biết tỷ lệ phần trăm sinh viên tốt nghiệp loại xuất sắc trong tổng số toàn bộ sinh viên CQ48 (Làm tròn tới hai chữ số thập phân)?\r\n', '2.32%', 0, 60, '2016-11-24 21:40:51.667300', '2016-11-24 21:41:51.667300'),
-(6, 'Hãy cho biết địa phương nào có nhiều sinh viên CQ48 sinh ra nhất?\r\n', 'Tỉnh Nghệ An', 2, 60, '2017-05-25 18:35:06.821800', '2017-05-25 18:36:06.821800'),
+(6, 'Hãy cho biết địa phương nào có nhiều sinh viên CQ48 sinh ra nhất?\r\n', 'Tỉnh Nghệ An', 0, 60, '2017-05-25 18:35:06.821800', '2017-05-25 18:36:06.821800'),
 (7, 'Chí Phèo gặp thị nở lần đầu ở đâu?', 'Vườnchuối', 0, 30, '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000'),
 (8, 'Trong Word 2010, Hãy cho biết để chèn một “sectionbreak” ta cần phải sử dụng tab nào trên thanh ribbon?', 'Page layout', 0, 30, '2017-05-25 18:31:22.163900', '2017-05-25 18:31:52.163900');
 
@@ -69,6 +69,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`user_name`, `password`, `role`, `teamname`) VALUES
 ('admin', 'admin123', 'admin', 'admin'),
+('mc', 'mc', 'mc', 'MC'),
 ('team1', 'team', 'user', 'Đội 1'),
 ('team2', 'team', 'user', 'Đội 2'),
 ('team3', 'team', 'user', 'Đội 3'),
@@ -85,15 +86,37 @@ CREATE TABLE IF NOT EXISTS `users_answers` (
   `time_answer` datetime(6) NOT NULL,
   `answer` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `rec_no` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `users_answers`
 --
 
 INSERT INTO `users_answers` (`user_name`, `time_answer`, `answer`, `rec_no`) VALUES
-('team1', '2017-05-25 23:55:26.358300', 'Tỉnh Nghệ An', 9),
-('team1', '2017-05-25 23:56:41.516200', 'Lê Văn Hiến Lê Văn Hiến', 10);
+('team1', '2017-08-28 16:32:46.457700', 'hello', 1),
+('team1', '2017-08-29 09:36:27.623800', 'ho', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_message`
+--
+
+CREATE TABLE IF NOT EXISTS `user_message` (
+  `user_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `message` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'PING',
+  `time` datetime(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user_message`
+--
+
+INSERT INTO `user_message` (`user_name`, `message`, `time`) VALUES
+('user_test', 'PING', '2017-08-29 10:42:43.292600'),
+('user_test', 'PING', '2017-08-29 10:47:55.712900'),
+('user_test', 'PING', '2017-08-29 10:48:32.972800'),
+('user_test', 'PING', '2017-08-29 10:49:01.862000');
 
 --
 -- Indexes for dumped tables
@@ -125,7 +148,7 @@ ALTER TABLE `users_answers`
 -- AUTO_INCREMENT for table `users_answers`
 --
 ALTER TABLE `users_answers`
-  MODIFY `rec_no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `rec_no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
