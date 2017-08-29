@@ -27,7 +27,9 @@ if ( $user_logon->role <> "user" ) {
 	exit;
 }
 
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,9 +45,17 @@ if ( $user_logon->role <> "user" ) {
             width: 100px;
             background: lightgreen;
         }
-        .btnRing:hover{
+
+        .btnRing:hover {
             cursor: pointer;
             background: darkgreen;
+        }
+        .disabled_button{
+            background: lightgray;
+        }
+        .disabled_button:hover{
+            background: darkgrey;
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -94,7 +104,7 @@ echo '<p id="clientTime"> </p>'
     <button type="submit" name="btnSubmit" class="btnSubmit" onclick="showClientTime()">Submit</button>
 
 </form>
-<button class="btnRing">Bấm chuông
+<button id="btnRing" class="btnRing" onclick="send_message_ping('<?php echo $user_logon->user_name ?>')">Bấm chuông
 </button>
 </body>
 <script>
@@ -104,6 +114,20 @@ echo '<p id="clientTime"> </p>'
         current_minute = currentTime.getMinutes();
         current_second = currentTime.getSeconds();
         currentTimeString = current_hour.toString() + "H " + current_minute.toString() + "m" + current_second.toString() + "s";
+    }
+    function send_message_ping(user_name) {
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("btnRing").disabled = true;
+                document.getElementById("btnRing").className+=" disabled_button";
+            }
+        };
+        xhttp.open("POST", "apis/insert_user_message.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("fname=Henry&lname=Ford");
+
     }
 </script>
 </html>
