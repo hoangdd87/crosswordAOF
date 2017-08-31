@@ -14,14 +14,9 @@ include_once __DIR__.'/../model/User_Message.php';
 include_once __DIR__.'/../util/Timer.php';
 
 
-$time_begin_str = Timer::getStringCurrentTimeWithMilisecond();
-
 $pdohelper = new PDOHelper();
-$user_message=new User_Message();
-$user_message->user_name='hoang';
-$user_message->time=$time_begin_str;
-$user_message->message="PING";
-print_r($pdohelper->insert_User_Message($user_message));
+$user_messages= $pdohelper->get_User_Message_Not_Seen();
+echo "data: ".json_encode($user_messages,JSON_UNESCAPED_UNICODE );
 
 //print_r($time1->getTimestamp()+$time1->format('.u'));
 
