@@ -1,3 +1,28 @@
+*{
+
+}
+
+.belllist {
+    list-style-type: none;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    height: 19px;
+    align-items: center;
+    /* width: 80%; */
+}
+
+li.li-teamname {
+    font-size: 30px;
+    text-transform: uppercase;
+    background: yellow;
+    color: black;
+    padding: 10px 10px;
+    margin: 10px;
+    width: 220px;
+    text-align: center;
+}
 html {
     background: url(images/vuotchuongngaivatmain.png) no-repeat center center fixed;
     -webkit-background-size: cover;

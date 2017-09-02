@@ -24,7 +24,6 @@ $textColor = Colors::getTextAnswerColor($question->status);
 </head>
 
 <body>
-
 <div class="container">
     <audio id="audio1" src="sounds/batdauhienthicauhoi.mp4" autoplay></audio>
 
@@ -61,14 +60,13 @@ $textColor = Colors::getTextAnswerColor($question->status);
     <button id="button30s" class="play-music-button" onclick="Play30sButton()">
     </button>
 
+    <audio id="bell" src="sounds/bell.mp3"></audio>
     <audio id="audio" src="sounds/30s.mp4"></audio>
 </div>
-
 <script>
     var t =<?php echo $question->answer_time?>;//Time for this question
     var sound = document.getElementById("audio");
 </script>
-
 </body>
 <script>
 
@@ -120,14 +118,14 @@ $textColor = Colors::getTextAnswerColor($question->status);
 
 
     }
-    
+
     function viewQuestion() {
         document.getElementById("question_text_area_id").style.color = _question_Text_Color;
-        document.getElementById("viewQuestion").style.display="none";
+        document.getElementById("viewQuestion").style.display = "none";
 
     }
 
 
-
 </script>
+<script src="getbellmessage.js"></script>
 </html>

@@ -98,6 +98,7 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
     </a>
 
 </div>
+<audio id="bell" src="sounds/bell.mp3"></audio>
 <script>
     var _question_id =<?=$question_id?>;
     var _status_opened =<?=Question::$OPENEDANSWER?>;
@@ -151,5 +152,6 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
     }
 
 </script>
+<script src="getbellmessage.js"></script>
 </html>
 

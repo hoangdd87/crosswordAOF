@@ -193,7 +193,7 @@ class PDOHelper
     }
 
     /**
-     * @return User_Message[]
+     * @return Aray
      */
     public function get_User_Message_Not_Seen()
     {
@@ -281,6 +281,21 @@ ON user_message.user_name=users.user_name
         foreach ($params as $key => &$val) {
             $sth->bindParam($key, $val);
         }
+        $result = $sth->execute();
+        return $result;
+    }
+
+    /*
+     * @param String $user_name
+     * @param int $status
+     * @return boolean
+     */
+    public function update_user_message($user_name, $isdelivery)
+    {
+        $sqlstr = "UPDATE user_message SET  isdelivery=:isdelivery WHERE user_name=:user_name";
+        $sth = $this->PDO->prepare($sqlstr);
+        $sth->bindParam('user_name', $user_name);
+        $sth->bindParam('isdelivery', $isdelivery);
         $result = $sth->execute();
         return $result;
     }

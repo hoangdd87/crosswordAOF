@@ -13,6 +13,7 @@ $questions_list = $pdoHelper->get_All_Questions();
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="hinhanh.css">
+
     <title>Hinh anh</title>
 </head>
 
@@ -29,12 +30,12 @@ $questions_list = $pdoHelper->get_All_Questions();
             $answerlettercolor = Colors::getTextAnswerColor($question->status);
             $backgroundanswercolor = Colors::getBackgroundTextAnswerColor($question->status);
             $answer_array = $question->getEveryLetterAnswer();
-            $div_chebe_background=($question->isAnswerClosed()?"closed":($question->isAnswerDisabled()?"disabled":"opened"));
+            $div_chebe_background = ($question->isAnswerClosed() ? "closed" : ($question->isAnswerDisabled() ? "disabled" : "opened"));
 
             ?>
 
-            <div class="div_chebe <?=$div_chebe_background?>">
-                <?=$question->question_id?>
+            <div class="div_chebe <?= $div_chebe_background ?>">
+                <?= $question->question_id ?>
             </div>
 
         <?php endforeach; ?>
@@ -46,12 +47,15 @@ $questions_list = $pdoHelper->get_All_Questions();
     <img alt="view" src="images/view.png" class="ImageView">
 </button>
 
+<audio id="bell" src="sounds/bell.mp3"></audio>
 </body>
+
 </html>
 <script>
     function viewQuestion() {
-        x=document.querySelectorAll(".div_chebe");
-        for(i=0;i<x.length;i++)x[i].classList.add("opened")
+        x = document.querySelectorAll(".div_chebe");
+        for (i = 0; i < x.length; i++)x[i].classList.add("opened")
 
     }
 </script>
+<script src="getbellmessage.js"></script>

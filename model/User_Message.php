@@ -14,23 +14,6 @@ class User_Message {
     {
     }
 
-    /**
-	 * User_Message constructor.
-	 *
-	 * @param $user_name
-	 * @param $message
-	 * @param $time
-     * @param $$isdelivery
-	 */
-	/*public function __construct( $user_name, $message, $time, $isdelivery ) {
-		$this->user_name = $user_name;
-		$this->message   = $message;
-		$this->time      = $time;
-        $this->isdelivery=$isdelivery;
-	}*/
-
-
-
 }
 
 ?>

@@ -20,7 +20,7 @@ $questions_list = $pdoHelper->get_All_Questions();
 
 
 <body>
-<div class="container">
+<div class="container" id="container">
     <a href="hinhanh.php" class="hinhanh_link">
         A
     </a>
@@ -44,9 +44,13 @@ $questions_list = $pdoHelper->get_All_Questions();
     <?php endforeach; ?>
 
     <audio id="audio" src="sounds/nguoichoiluachoncauhoi.wav"></audio>
+    <audio id="bell" src="sounds/bell.mp3"></audio>
+
 
     <button class="play-music-button" onclick="PlaySound()">
     </button>
+
+
 
 
 </div>
@@ -56,5 +60,10 @@ $questions_list = $pdoHelper->get_All_Questions();
         var sound = document.getElementById("audio");
         sound.play();
     }
+
+
 </script>
+
+<script src="getbellmessage.js"></script>
+
 </html>
