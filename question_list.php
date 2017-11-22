@@ -43,7 +43,7 @@ $questions_list = $pdoHelper->get_All_Questions();
         </div>
     <?php endforeach; ?>
 
-    <audio id="audio" src="sounds/nguoichoiluachoncauhoi.wav"></audio>
+    <audio id="audio" src="sounds/nguoichoichuanbiluachonhangngang.mp3"></audio>
     <audio id="bell" src="sounds/bell.mp3"></audio>
 
 
