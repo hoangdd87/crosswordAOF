@@ -5,13 +5,15 @@ include_once __DIR__ . '/util/PDOHelper.php';
 include_once __DIR__ . '/resource/Colors.php';
 
 
-$question_id = isset($_GET['question_id']) ? $_GET['question_id'] : 3;
+$question_id = isset($_GET['question_id']) ? $_GET['question_id'] : 1;
 $pdoHelper = new PDOHelper();
 $question = $pdoHelper->get_Question($question_id);
-$answer_array = $question->getEveryLetterAnswer();
+
+/*$answer_array = $question->getEveryLetterAnswer();
 $backGroundColor = Colors::getBackgroundTextAnswerColor($question->status);
-$textColor = Colors::getTextAnswerColor($question->status);
+$textColor = Colors::getTextAnswerColor($question->status);*/
 ?>
+
 <!DOCTYPE html>
 
 
@@ -29,36 +31,46 @@ $textColor = Colors::getTextAnswerColor($question->status);
 
 
     <div class="row_correct_answer">
-        <a href="question_list.php" class="homebuttoncontainer">
-            <img alt="Home" src="images/Home-icon.png" class="image">
-        </a>
+        <!--Unhide question and answer-->
+        <button class="viewQuestionContainer" id="viewQuestion" onclick="viewQuestion()">
+            <img alt="view" src="images/view.png" class="ImageView">
+        </button>
 
-        <div class="correct_answer">
-            <?php foreach ($answer_array as $letter): ?>
-                <span class="lettercell"
-                      style="background-color: <?= $backGroundColor ?>;color: <?= $textColor ?>;"><?= $letter ?></span>
-            <?php endforeach; ?>
-        </div>
+        <!--Show users' answers-->
         <a class="question_id" href="users_final_answers.php?question_id=<?= $question_id ?>">
             <?= $question_id ?>
         </a>
     </div>
 
-    <button class="viewQuestionContainer" id="viewQuestion" onclick="viewQuestion()">
-        <img alt="view" src="images/view.png" class="ImageView">
-    </button>
+
 
     <div class="question_area">
         <div id="question_text_area_id" class="question_text_area" style="color: transparent">
             <?= $question->question ?>
         </div>
-        <div id='question_countdown_clock_area' class="question_countdown_clock_area">
-            <?php echo $question->answer_time ?>
-        </div>
+    </div>
 
+    <div class="row-answer">
+        <span class="answer_cell answer_a">
+            A. <?php echo $question->answer_a?>
+        </span>
+        <span class="answer_cell answer_b">
+            B. <?php echo $question->answer_b?>
+        </span>
+    </div>
+    <div class="row-answer">
+        <span class="answer_cell answer_c">
+            C. <?php echo $question->answer_c?>
+        </span>
+        <span class="answer_cell answer_d">
+            D. <?php echo $question -> answer_d?>
+        </span>
     </div>
     <button id="button30s" class="play-music-button" onclick="Play30sButton()">
     </button>
+    <div id='question_countdown_clock_area' class="question_countdown_clock_area">
+		<?php echo $question->answer_time ?>
+    </div>
 
     <audio id="bell" src="sounds/bell.mp3"></audio>
     <audio id="audio" src="sounds/30s.mp4"></audio>
@@ -120,6 +132,8 @@ $textColor = Colors::getTextAnswerColor($question->status);
     }
 
     function viewQuestion() {
+        document.getElementsByClassName("row-answer")[0].style.visibility = "visible";
+        document.getElementsByClassName("row-answer")[1].style.visibility = "visible";
         document.getElementById("question_text_area_id").style.color = _question_Text_Color;
         document.getElementById("viewQuestion").style.display = "none";
 

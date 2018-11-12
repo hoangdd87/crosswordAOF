@@ -18,6 +18,10 @@ class Question
     public $answer_time;
     public $time_begin;
     public $time_end;
+    public $answer_a;
+    public $answer_b;
+    public $answer_c;
+    public $answer_d;
 
     public function isAnswerClosed()
     {
