@@ -9,7 +9,7 @@
 
 
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
+error_reporting( E_ALL ^ E_NOTICE );
 
 //Prepare to show all quuestions
 include_once __DIR__ . '/util/PDOHelper.php';
@@ -18,30 +18,38 @@ include_once __DIR__ . '/model/User_Final_Answer.php';
 $pdoHelper = new PDOHelper();
 
 
-function getBackgroundTextAnswerColor($code)
-{
-    if ($code == Question::$CLOSEANSWER) return Colors::$AVAILABLEBACKGROUND;
-    else if ($code == Question::$DISABLEANSWER) return Colors::$DISABLEBACKGROUND;
-    else if ($code == Question::$OPENEDANSWER) return Colors::$OPENEDBACKGROUND;
+function getBackgroundTextAnswerColor( $code ) {
+	if ( $code == Question::$CLOSEANSWER ) {
+		return Colors::$AVAILABLEBACKGROUND;
+	} else if ( $code == Question::$DISABLEANSWER ) {
+		return Colors::$DISABLEBACKGROUND;
+	} else if ( $code == Question::$OPENEDANSWER ) {
+		return Colors::$OPENEDBACKGROUND;
+	}
 }
 
-function getTextAnswerColor($code)
-{
-    if ($code == Question::$CLOSEANSWER) return Colors::$TRANSPARENTCOLOR;
-    else if ($code == Question::$DISABLEANSWER) return Colors::$TRANSPARENTCOLOR;
-    else if ($code == Question::$OPENEDANSWER) return Colors::$TEXTANSWERCOLOR;
+function getTextAnswerColor( $code ) {
+	if ( $code == Question::$CLOSEANSWER ) {
+		return Colors::$TRANSPARENTCOLOR;
+	} else if ( $code == Question::$DISABLEANSWER ) {
+		return Colors::$TRANSPARENTCOLOR;
+	} else if ( $code == Question::$OPENEDANSWER ) {
+		return Colors::$TEXTANSWERCOLOR;
+	}
 }
 
-$question_id = isset($_GET['question_id']) ? $_GET['question_id'] : 1;
-$pdoHelper = new PDOHelper();
-$question = $pdoHelper->get_Question($question_id);
+$question_id = isset( $_GET['question_id'] ) ? $_GET['question_id'] : 1;
+$pdoHelper   = new PDOHelper();
+$question    = $pdoHelper->get_Question( $question_id );
 //Get every letter of correct answer
-$answer_array = $question->getEveryLetterAnswer();
-$backGroundColor = Colors::getBackgroundTextAnswerColor($question->status);
+$answer_array    = $question->getEveryLetterAnswer();
+$backGroundColor = Colors::getBackgroundTextAnswerColor( $question->status );
 
-$textColor = Colors::getTextAnswerColor($question->status);
+$textColor = Colors::getTextAnswerColor( $question->status );
 
-$users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
+
+
+$users_final_answers = $pdoHelper->get_Users_Final_Answers( $question );
 
 ?>
 
@@ -52,51 +60,33 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
 <audio id="traloisai" src="sounds/traloisai.mp3"></audio>
 <div class="container">
 
-    <div class="row_correct_answer">
+    <div class="row_top">
 
         <a href="question_list.php" class="homebuttoncontainer">
             <img alt="Home" src="images/Home-icon.png" class="image">
         </a>
-        <div class="correct_answer">
-            <?php foreach ($answer_array as $character): ?>
-                <span class="lettercell" style="background-color: <? echo $backGroundColor ?>;
-                    color: <?= $textColor ?>"><?= $character ?></span>
-            <?php endforeach; ?>
-        </div>
-        <a href="#" class="question_id">
-            <?= $question->question_id ?>
+        <a href="question.php?question_id=<?php echo $question->question_id + 1 ?>" class="question_id">
+			<?= $question->question_id ?>
         </a>
-
     </div>
 
 
-    <?php foreach ($users_final_answers as $user_final_answer): ?>
+	<?php foreach ( $users_final_answers as $user_final_answer ): ?>
         <div class="row_user_answer">
             <div class="user_name">
-                <?= $user_final_answer->teamname ?>
+				<?= $user_final_answer->teamname ?>
             </div>
             <div class="user_answer_time">
-                <?= $user_final_answer->get_User_Final_Time_Diff($question) ?>
+				<?= $user_final_answer->get_User_Final_Time_Diff( $question ) ?>
             </div>
             <div class="user_answer">
-                <?= $user_final_answer->last_answer ?>
+				<?= $user_final_answer->last_answer ?>
             </div>
         </div>
-    <?php endforeach; ?>
-
-
-    <div class="row_user_answer" style="vertical-align: middle">
-        <button class="buttonYes" onclick="buttonYesClick()">
-            Đ
-        </button>
-        <button class="buttonNo" onclick="buttonNoClick()">
-            S
-        </button>
-    </div>
-    <a href="hinhanh.php" class="hinhanh_link" style="bottom: 0;left: 0">
-        A
-    </a>
-
+	<?php endforeach; ?>
+    <span class="lettercell" onclick="buttonYesClick()">
+            A
+    </span>
 </div>
 <audio id="bell" src="sounds/bell.mp3"></audio>
 <script>
@@ -119,6 +109,7 @@ $users_final_answers = $pdoHelper->get_Users_Final_Answers($question);
         /*Update status to the question*/
 
     }
+
     function buttonNoClick() {
         var soundNo = document.getElementById("traloisai");
         soundNo.play();

@@ -30,7 +30,7 @@ $textColor = Colors::getTextAnswerColor($question->status);*/
     <audio id="audio1" src="sounds/batdauhienthicauhoi.mp4" autoplay></audio>
 
 
-    <div class="row_correct_answer">
+    <div class="row_top">
         <!--Unhide question and answer-->
         <button class="viewQuestionContainer" id="viewQuestion" onclick="viewQuestion()">
             <img alt="view" src="images/view.png" class="ImageView">
@@ -141,5 +141,5 @@ $textColor = Colors::getTextAnswerColor($question->status);*/
 
 
 </script>
-<script src="getbellmessage.js"></script>
+<!--<script src="getbellmessage.js"></script>-->
 </html>

@@ -121,7 +121,7 @@ body.fade-out {
     margin: 15px 15px 15px 15px;
 }
 
-.container > .row_correct_answer {
+.container > .row_top {
     /* position: relative; */
     display: flex;
     height: 60px;
@@ -132,7 +132,7 @@ body.fade-out {
     justify-content: space-between;
 }
 
-.container > .row_correct_answer > .correct_answer {
+.container > .row_top > .correct_answer {
     position: absolute;
     left: 50px;
     display: inline-block;
@@ -143,7 +143,7 @@ body.fade-out {
     background-color: transparent; /*Always*/
 }
 
-.container > .row_correct_answer > .correct_answer > .lettercell {
+.lettercell {
     position: relative;
     font-weight: 600;
     font-family: tahoma, verdana, arial, sans-serif;
@@ -151,10 +151,10 @@ body.fade-out {
     display: inline-block;
     width: 50px;
     height: 50px;
-    margin-left: 5px;
+    margin-left: 47%;
     text-align: center;
     vertical-align: middle;
-    margin-top: auto;
+    margin-top: 50px;
     margin-bottom: auto;
     top: 50%;
     transform: translateY(-50%);
@@ -188,7 +188,7 @@ body.fade-out {
     border: none;
     cursor: pointer;
 }
-.container > .row_correct_answer > .question_id {
+.container > .row_top > .question_id {
     position: absolute;
     display: inline-block;
     width: 50px;
@@ -210,13 +210,13 @@ body.fade-out {
     cursor: pointer;
 }
 
-.container > .row_correct_answer > .question_id:hover {
+.container > .row_top > .question_id:hover {
 
     background-color: #1A237E;
     text-decoration: none;
 }
 
-.container > .row_correct_answer > .homebuttoncontainer {
+.container > .row_top > .homebuttoncontainer {
     position: absolute;
     left: 0;
     top: 0;
@@ -229,7 +229,7 @@ body.fade-out {
     display: inline;
 }
 
-.container > .row_correct_answer > .homebuttoncontainer > .image {
+.container > .row_top > .homebuttoncontainer > .image {
     position: absolute;
     width: 50px;
     height: 50px;
@@ -333,7 +333,7 @@ body.fade-out {
     position: relative;
     display: inline-block;
     float: left;
-    width: 200px;
+    width: 500px;
     height: 60px;
     line-height: 60px;
     color: #fff;
@@ -341,9 +341,7 @@ body.fade-out {
     background-color: #474747;
     text-shadow: #fff 0 0 10px;
     text-align: center;
-
     vertical-align: middle;
-
 }
 
 .container > .row_user_answer > .user_answer_time {
@@ -366,7 +364,7 @@ body.fade-out {
 .container > .row_user_answer > .user_answer {
     position: relative;
     display: inline-block;
-    width: calc(100% - 350px);
+    width: calc(100% - 700px);
     height: 60px;
     line-height: 60px;
     color: #801f03;
@@ -376,9 +374,7 @@ body.fade-out {
     text-shadow: #fff 0 0 10px;
     text-align: left;
     padding-left: 30px;
-
     vertical-align: middle;
-
 }
 
 .container>.row_user_answer>.buttonYes{

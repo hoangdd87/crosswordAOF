@@ -21,22 +21,12 @@ $questions_list = $pdoHelper->get_All_Questions();
 
 <body>
 <div class="container" id="container">
-    <a href="hinhanh.php" class="hinhanh_link">
-        A
-    </a>
     <?php foreach ($questions_list as $question):
         $answerlettercolor = Colors::getTextAnswerColor($question->status);
         $backgroundanswercolor = Colors::getBackgroundTextAnswerColor($question->status);
         $answer_array = $question->getEveryLetterAnswer();
         ?>
-        <div class="row_correct_answer">
-            <div class="correct_answer">
-                <?php foreach ($answer_array as $character): ?>
-
-                    <span class="lettercell" style="background-color: <?php echo $backgroundanswercolor ?>;
-                        color: <?= $answerlettercolor ?>"><?= $character ?></span>
-                <?php endforeach; ?>
-            </div>
+        <div class="row_top">
             <a class="question_id" href="question.php?question_id=<?= $question->question_id ?>">
                 <?= $question->question_id ?>
             </a>
