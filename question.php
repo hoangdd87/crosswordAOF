@@ -5,9 +5,9 @@ include_once __DIR__ . '/util/PDOHelper.php';
 include_once __DIR__ . '/resource/Colors.php';
 
 
-$question_id = isset($_GET['question_id']) ? $_GET['question_id'] : 1;
-$pdoHelper = new PDOHelper();
-$question = $pdoHelper->get_Question($question_id);
+$question_id = isset( $_GET['question_id'] ) ? $_GET['question_id'] : 1;
+$pdoHelper   = new PDOHelper();
+$question    = $pdoHelper->get_Question( $question_id );
 
 /*$answer_array = $question->getEveryLetterAnswer();
 $backGroundColor = Colors::getBackgroundTextAnswerColor($question->status);
@@ -38,34 +38,49 @@ $textColor = Colors::getTextAnswerColor($question->status);*/
 
         <!--Show users' answers-->
         <a class="question_id" href="users_final_answers.php?question_id=<?= $question_id ?>">
-            <?= $question_id ?>
+			<?= $question_id ?>
         </a>
     </div>
 
 
-
     <div class="question_area">
         <div id="question_text_area_id" class="question_text_area" style="color: transparent">
-            <?= $question->question ?>
+			<?= $question->question ?>
         </div>
     </div>
 
     <div class="row-answer">
         <span class="answer_cell answer_a">
-            A. <?php echo $question->answer_a?>
+            A. <?php echo $question->answer_a ?>
         </span>
         <span class="answer_cell answer_b">
-            B. <?php echo $question->answer_b?>
+            B. <?php echo $question->answer_b ?>
         </span>
     </div>
     <div class="row-answer">
         <span class="answer_cell answer_c">
-            C. <?php echo $question->answer_c?>
+            C. <?php echo $question->answer_c ?>
         </span>
         <span class="answer_cell answer_d">
-            D. <?php echo $question -> answer_d?>
+            D. <?php echo $question->answer_d ?>
         </span>
     </div>
+
+    <div class="row-team-ansered" id="row-team-ansered">
+        <!--<div class="team-name">
+            Tài chính doanh nghiệp
+        </div>
+        <div class="team-name">
+            Tài chính công
+        </div>
+        <div class="team-name">
+            Kinh tế
+        </div>
+        <div class="team-name">
+            DDP
+        </div>-->
+    </div>
+
     <button id="button30s" class="play-music-button" onclick="Play30sButton()">
     </button>
     <div id='question_countdown_clock_area' class="question_countdown_clock_area">
@@ -78,6 +93,7 @@ $textColor = Colors::getTextAnswerColor($question->status);*/
 <script>
     var t =<?php echo $question->answer_time?>;//Time for this question
     var sound = document.getElementById("audio");
+    var bell = document.getElementById("bell");
 </script>
 </body>
 <script>
@@ -127,8 +143,38 @@ $textColor = Colors::getTextAnswerColor($question->status);*/
     function Play30sButton() {
         //post start time to server
         post();
+        var previousData = [];
+        setInterval(function () {
+            $.post("http://localhost/crosswordaof/apis/api_get_all_answer.php",
+                {
+                    question_id: _question_id,
+                },
+                function (data, status) {
+                    var receivedData = [];
+                    data.filter(function (team) {
+                        return team.last_time_answer
+                    })
+                        .forEach(function (team) {
+                            receivedData.push(team);
+                        });
+                    if (receivedData.length !== previousData.length) {
+                        bell.play();
+                        previousData = receivedData;
+                        var myNode = document.getElementById("row-team-ansered");
+                        myNode.innerHTML = '';
+                        receivedData.forEach(function (team) {
+                            console.log('create new element = ', team);
+                            team_div = document.createElement('div');
+                            team_div.className = "team-name";
+                            team_div.innerHTML = team.teamname;
+                            myNode.appendChild(team_div);
 
+                        })
 
+                    }
+
+                });
+        }, 2000)
     }
 
     function viewQuestion() {

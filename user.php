@@ -106,8 +106,8 @@ echo '<p id="clientTime"> </p>'
     <button type="submit" name="btnSubmit" class="btnSubmit" onclick="showClientTime()">Submit</button>
 
 </form>
-<button id="btnRing" class="btnRing" onclick="send_message_ping('<?php echo $user_logon->user_name ?>')">Bấm chuông
-</button>
+<!--<button id="btnRing" class="btnRing" onclick="send_message_ping('<?php /*echo $user_logon->user_name */?>')">Bấm chuông
+</button>-->
 </body>
 <script>
     function showClientTime() {

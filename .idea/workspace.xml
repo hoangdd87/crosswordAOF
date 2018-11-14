@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="216c9edd-0084-4aae-9dbf-b497a19e4d3f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/apis/api_get_all_answer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mycss.css" beforeDir="false" afterPath="$PROJECT_DIR$/mycss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/question.php" beforeDir="false" afterPath="$PROJECT_DIR$/question.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/question_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/question_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users_final_answers.php" beforeDir="false" afterPath="$PROJECT_DIR$/users_final_answers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/user.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,29 +34,81 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="users_final_answers.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/users_final_answers.php">
+      <file leaf-file-name="question.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/question.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="397">
+              <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="question_list.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/question_list.php">
+      <file leaf-file-name="api_get_all_answer.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apis/api_get_all_answer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+            <state relative-caret-position="75">
+              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mycss.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="api_reset_question_status.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apis/api_reset_question_status.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="insert_user_message.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apis/insert_user_message.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update_question_status.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apis/update_question_status.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="72" lean-forward="true" selection-start-line="4" selection-end-line="4" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PDOHelper.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/util/PDOHelper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3060">
+              <caret line="204" column="20" selection-start-line="204" selection-start-column="20" selection-end-line="204" selection-end-column="20" />
+              <folding>
+                <marker date="1542050046622" expanded="true" signature="741:871" ph="SELECT user_... users" />
+                <marker date="1542050046622" expanded="true" signature="1292:1443" ph="SELECT user_... users_answers" />
+                <marker date="1542050046622" expanded="true" signature="1790:1927" ph="INSERT INTO users_answers... " />
+                <marker date="1542050046622" expanded="true" signature="2356:2490" ph="INSERT INTO user_message... " />
+                <marker date="1542050046622" expanded="true" signature="2913:3109" ph="SELECT quest... questions" />
+                <marker date="1542050046622" expanded="true" signature="3376:3594" ph="SELECT quest... questions" />
+                <marker date="1542050046622" expanded="true" signature="4016:4082" ph="UPDATE quest... " />
+                <marker date="1542050046622" expanded="true" signature="4485:4578" ph="UPDATE quest... " />
+                <marker date="1542050046622" expanded="true" signature="4975:5029" ph="UPDATE quest... " />
+                <marker date="1542050046622" expanded="true" signature="5276:5373" ph="SELECT user_... users" />
+                <marker date="1542050046622" expanded="true" signature="5653:5841" ph="SELECT user_... " />
+                <marker date="1542050046622" expanded="true" signature="6261:6668" ph="select users... users" />
+                <marker date="1542050046622" expanded="true" signature="6388:6571" ph="select * fro... users_answers" />
+                <marker date="1542050046622" expanded="true" signature="6438:6570" ph="select max(t... users_answers" />
+                <marker date="1542050046622" expanded="true" signature="7181:7376" ph="SELECT quest... questions" />
+                <marker date="1542050046622" expanded="true" signature="7658:7691" ph="DELETE FROM " />
+                <marker date="1542050046622" expanded="true" signature="7798:7830" ph="DELETE FROM " />
+                <marker date="1542050046622" expanded="true" signature="8501:8575" ph="UPDATE user_... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mycss.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mycss.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="424" column="17" lean-forward="true" selection-start-line="424" selection-start-column="17" selection-end-line="424" selection-end-column="17" />
+            <state relative-caret-position="255">
+              <caret line="17" column="33" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -66,10 +118,23 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>question_countdown_clock_area</find>
-      <find>bell</find>
       <find>#</find>
       <find>lettercell</find>
+      <find>question_id</find>
+      <find>bell</find>
+      <find>audio</find>
+      <find>cons</find>
     </findStrings>
+  </component>
+  <component name="FrameworkCommandLineHistory">
+    <commandsHistory>
+      <command text="git add ." />
+      <command text="git commit -m 'ok'" />
+      <command text="git push" />
+      <command text="git push --set-upstream origin tangtoc55" />
+      <command text="git push" />
+      <command text="git add ." />
+    </commandsHistory>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,10 +144,12 @@
       <list>
         <option value="$PROJECT_DIR$/model/Question.php" />
         <option value="$PROJECT_DIR$/util/PDOHelper.php" />
-        <option value="$PROJECT_DIR$/question.php" />
-        <option value="$PROJECT_DIR$/users_final_answers.php" />
-        <option value="$PROJECT_DIR$/mycss.css" />
         <option value="$PROJECT_DIR$/question_list.php" />
+        <option value="$PROJECT_DIR$/users_final_answers.php" />
+        <option value="$PROJECT_DIR$/user.php" />
+        <option value="$PROJECT_DIR$/apis/api_get_all_answer.php" />
+        <option value="$PROJECT_DIR$/question.php" />
+        <option value="$PROJECT_DIR$/mycss.css" />
       </list>
     </option>
   </component>
@@ -96,9 +163,9 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1174" />
+    <option name="x" value="4" />
     <option name="y" value="23" />
-    <option name="width" value="744" />
+    <option name="width" value="879" />
     <option name="height" value="971" />
   </component>
   <component name="ProjectView">
@@ -113,6 +180,11 @@
             <path>
               <item name="crosswordaof" type="b2602c69:ProjectViewProjectNode" />
               <item name="crosswordaof" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="crosswordaof" type="b2602c69:ProjectViewProjectNode" />
+              <item name="crosswordaof" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="apis" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -155,24 +227,25 @@
       <workItem from="1511374755733" duration="16000" />
       <workItem from="1511808368198" duration="4000" />
       <workItem from="1542048987584" duration="7126000" />
-      <workItem from="1542123936641" duration="3788000" />
+      <workItem from="1542123936641" duration="6453000" />
+      <workItem from="1542157650068" duration="3231000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10990000" />
+    <option name="totallyTimeSpent" value="16886000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1174" y="23" width="744" height="971" extended-state="0" />
+    <frame x="4" y="23" width="879" height="971" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49833888" visible="true" weight="0.10483871" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49833888" weight="0.21290323" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" weight="0.32971245" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32887402" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32887402" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
@@ -182,6 +255,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="8" visible="true" weight="0.32998884" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -194,6 +268,54 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/question.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="74" column="14" lean-forward="true" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apis/api_get_all_answer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/PDOHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3060">
+          <caret line="204" column="20" selection-start-line="204" selection-start-column="20" selection-end-line="204" selection-end-column="20" />
+          <folding>
+            <marker date="1542050046622" expanded="true" signature="741:871" ph="SELECT user_... users" />
+            <marker date="1542050046622" expanded="true" signature="1292:1443" ph="SELECT user_... users_answers" />
+            <marker date="1542050046622" expanded="true" signature="1790:1927" ph="INSERT INTO users_answers... " />
+            <marker date="1542050046622" expanded="true" signature="2356:2490" ph="INSERT INTO user_message... " />
+            <marker date="1542050046622" expanded="true" signature="2913:3109" ph="SELECT quest... questions" />
+            <marker date="1542050046622" expanded="true" signature="3376:3594" ph="SELECT quest... questions" />
+            <marker date="1542050046622" expanded="true" signature="4016:4082" ph="UPDATE quest... " />
+            <marker date="1542050046622" expanded="true" signature="4485:4578" ph="UPDATE quest... " />
+            <marker date="1542050046622" expanded="true" signature="4975:5029" ph="UPDATE quest... " />
+            <marker date="1542050046622" expanded="true" signature="5276:5373" ph="SELECT user_... users" />
+            <marker date="1542050046622" expanded="true" signature="5653:5841" ph="SELECT user_... " />
+            <marker date="1542050046622" expanded="true" signature="6261:6668" ph="select users... users" />
+            <marker date="1542050046622" expanded="true" signature="6388:6571" ph="select * fro... users_answers" />
+            <marker date="1542050046622" expanded="true" signature="6438:6570" ph="select max(t... users_answers" />
+            <marker date="1542050046622" expanded="true" signature="7181:7376" ph="SELECT quest... questions" />
+            <marker date="1542050046622" expanded="true" signature="7658:7691" ph="DELETE FROM " />
+            <marker date="1542050046622" expanded="true" signature="7798:7830" ph="DELETE FROM " />
+            <marker date="1542050046622" expanded="true" signature="8501:8575" ph="UPDATE user_... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mycss.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6855">
+          <caret line="457" selection-start-line="457" selection-end-line="457" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/question.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2145">
@@ -316,6 +438,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/getbellmessage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users_final_answers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-568">
+          <caret line="51" column="39" lean-forward="true" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/model/Question.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -323,10 +459,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apis/api_clear_user_answer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="28" selection-start-line="2" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/util/PDOHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1387">
-          <caret line="115" column="34" selection-start-line="115" selection-start-column="34" selection-end-line="115" selection-end-column="34" />
+        <state relative-caret-position="3060">
+          <caret line="204" column="20" selection-start-line="204" selection-start-column="20" selection-end-line="204" selection-end-column="20" />
           <folding>
             <marker date="1542050046622" expanded="true" signature="741:871" ph="SELECT user_... users" />
             <marker date="1542050046622" expanded="true" signature="1292:1443" ph="SELECT user_... users_answers" />
@@ -350,27 +493,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/getbellmessage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/question.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="104" column="30" lean-forward="true" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mycss.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="424" column="17" lean-forward="true" selection-start-line="424" selection-start-column="17" selection-end-line="424" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/question_list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -378,10 +500,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users_final_answers.php">
+    <entry file="file://$PROJECT_DIR$/user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="1616">
+          <caret line="109" column="12" lean-forward="true" selection-start-line="108" selection-end-line="109" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apis/insert_user_message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apis/update_question_status.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="72" lean-forward="true" selection-start-line="4" selection-end-line="4" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apis/api_reset_question_status.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apis/api_get_all_answer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/question.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mycss.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="33" />
         </state>
       </provider>
     </entry>
